@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+    {% if session.logged_in %}
+    <div id="youkuplayer" style="width:480px;height:400px"></div>
+    <script type="text/javascript" src="http://player.youku.com/jsapi">
+        player = new YKU.Player('youkuplayer',{
+        styleid: '0',
+        client_id: 'f12d97855abd41a7',
+        vid: 'XODI0NzcwMTUy'
+        });
+    </script>
+    {% endif %}
+    <ul class="entries">
+    {% for entry in entries %}
+        <li><h2>{{ entry.title }}</h2>{{ entry.text|safe }}
+    {% else %}
+        <li><em>No entries here so far</em>
+    {% endfor %}
+    </ul>
+{% endblock %}
+

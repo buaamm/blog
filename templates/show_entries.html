@@ -11,6 +11,7 @@
         </dl>
     </form>
     {% endif %}
+    <a href="{{ url_for('show_video') }}">Watch a video</a>
     <ul class="entries">
     {% for entry in entries %}
         <li><h2>{{ entry.title }}</h2>{{ entry.text|safe }}

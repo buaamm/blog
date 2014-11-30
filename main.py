@@ -62,7 +62,6 @@ def close_db(error):
     db = getattr(g, '_db', None)
     if db is not None:
         db.close()
-    print('Tear Down......')
 
 @app.route('/')
 def show_entries():
@@ -103,6 +102,12 @@ def logout():
 
 #@app.route('/profile/<int:user_id>')
 #def profile():
+#    
+@app.route('/video')
+def show_video():
+    return render_template('show_video.html')
+
+
 #    
 
 

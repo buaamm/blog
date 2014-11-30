@@ -49,19 +49,15 @@ def query_db(query, args=(), one=False):
 #create application
 app = Flask(__name__)
 app.config.from_object(__name__) # import and look for all UPPERCASE variables defined
-#init_db()
 
 #@app.cli.command('initdb')
 #def initdb_command():
-#    """Creates the database tables."""
 #    init_db()
-#    print('Initialized the databases.')
 #
 #@app.before_request
 #def before_request():
 #    init_db()
 #    g.db = connect_db()
-#    print('Before request......')
 
 @app.teardown_appcontext
 def close_db(error):
@@ -71,11 +67,11 @@ def close_db(error):
         db.close()
 
 @app.route('/')
-def show_entries():
+def homepage():
     g.db = connect_db()
     cur = g.db.execute('select title, text from entries order by id desc')
     entries = cur.fetchall()
-    return render_template('show_entries.html', entries=entries)
+    return render_template('homepage.html', entries=entries)
 
 @app.route('/add', methods=['POST'])
 def add_entry():
@@ -85,7 +81,7 @@ def add_entry():
     db.execute('insert into entries (title, text) values (?, ?)', [request.form['title'], request.form['text']])
     db.commit()
     flash('New entry was successfully posted.')
-    return redirect(url_for('show_entries'))
+    return redirect(url_for('homepage'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -98,14 +94,14 @@ def login():
         else:
             session['logged_in'] = True
             flash('You are logged in')
-            return redirect(url_for('show_entries'))
+            return redirect(url_for('homepage'))
     return render_template('login.html', error=error)
 
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
     flash('You were logged out')
-    return redirect(url_for('show_entries'))
+    return redirect(url_for('homepage'))
 
 #@app.route('/profile/<int:user_id>')
 #def profile():

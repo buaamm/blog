@@ -1,0 +1,27 @@
+<!doctype html>
+<title>星夢のBlog</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<div class="page">
+    <h1>星夢のBlog</h1>
+    <div class="metanav">
+        {% if not session.logged_in %}
+        <form action="{{ url_for('login') }}" method="post">
+            <dl>
+                <dt>Username:(admin)
+                <dd><input type="text" name="username">
+                <dt>Password:(default)
+                <dd><input type="password" name="password">
+                <dd><input type="submit" value="Login GO">
+            </dl>
+        </form>
+        {% else %}
+        <h2>お帰りなさいませ、御主人様。</h2><a href="{{ url_for('logout') }}">log out</a>
+        {% endif %}
+    </div>
+    {% for massage in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
+    {% block body %}
+    {% endblock %}
+</div>
+

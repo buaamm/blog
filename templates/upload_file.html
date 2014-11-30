@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Upload new File</h1>
+    <form action="" method=post enctype=multipart/form-data>
+      <p><input type=file name=file>
+        <input type=submit value=Upload>
+    </form>
+    <br>
+
+<h1>Uploaded Files</h1>
+    <table border="0">
+        <tr>
+        <td></td>
+        <td>File Name</td>
+        <td>Size(in Bytes)</td>
+        <td>Upload Date</td>
+        <td>MD5 and SHA1</td>
+        </tr>
+
+        {% for file in files %}
+        <tr>
+        <td>{{ file[1] }}</td>
+        <td><a href="/files/{{ file[1] }}" target="_blank">{{ file[2] }}</a></td>
+        <td>{{ file[3] }}</td>
+        <td>{{ file[0] }}</td>
+        <td>{{ file[4] }}<br>{{ file[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

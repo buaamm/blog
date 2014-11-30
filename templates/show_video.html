@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
+    {#
     {% if session.logged_in %}
     <div id="youkuplayer" style="width:480px;height:400px"></div>
     <script type="text/javascript" src="http://player.youku.com/jsapi">
@@ -10,12 +11,19 @@
         });
     </script>
     {% endif %}
-    <ul class="entries">
-    {% for entry in entries %}
-        <li><h2>{{ entry.title }}</h2>{{ entry.text|safe }}
-    {% else %}
-        <li><em>No entries here so far</em>
-    {% endfor %}
-    </ul>
+    #}
+    <h1>Video from Youku</h1>
+    <div class="video" id="youku_video">
+        <embed class="videoin" src="http://player.youku.com/player.php/sid/XMTUxNTEwOTc2/v.swf" allowFullScreen="true" quality="high" width="720" height="600" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+    </div>
+
+    <h1>Video from Bilibili</h1>
+    <div class="video" id="bilibili_video">
+        <embed class="videoin" src="http://static.hdslb.com/miniloader.swf?aid=1738367&amp;page=1" allowFullScreen="true" quality="high" width="720" height="600" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+    </div>
+
+
 {% endblock %}
+
+
 

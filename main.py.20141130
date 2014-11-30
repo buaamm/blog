@@ -1,13 +1,7 @@
 # -*- coding: utf-8 -*-
-import os
-import datetime
-from werkzeug import secure_filename
+
 from sqlite3 import dbapi2 as sqlite3
-from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash, send_from_directory
-
-# import model
-import myhash
-
+from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 
 #configuration
 DATABASE = '/tmp/blog.db'
@@ -15,7 +9,6 @@ DEBUG = True
 SECRET_KEY = 'development key'
 USERNAME = 'admin'
 PASSWORD ='default'
-UPLOAD_FOLDER = '/Users/niyishuai/lab/blog/files'
 
 #database utils
 def init_db():
@@ -114,45 +107,9 @@ def logout():
 def show_video():
     return render_template('show_video.html')
 
-@app.route('/music')
-def set_music():
-    return render_template('set_music.html')
 
+#    
 
-ALLOWED_EXT = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'mp3', 'ogg', 'mp4'])
-def check_filename(filename):
-    return ('.' in filename) and (filename.rsplit('.', 1)[1] in ALLOWED_EXT)
-
-@app.route('/upload', methods=['GET', 'POST'])
-def upload_file():
-    if request.method == 'POST':
-        file = request.files['file'] # use [files] dictionary on the request object
-        if file and check_filename(file.filename):
-            filename = secure_filename(file.filename) # secure_filename(): Strip filename To ASCII string
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename)) # save(): save file permanently
-            return redirect(url_for('uploaded_file', filename=filename)) # Uploaded Successfully, Redirect to [uploaded_file]
-    # Upload Failed
-    file_dict = []
-    index = 1
-    for afile in os.listdir(app.config['UPLOAD_FOLDER']):
-        apath = os.path.join(app.config['UPLOAD_FOLDER'], afile)
-        atime = os.path.getmtime(apath)
-        adate = (datetime.datetime.fromtimestamp(atime)).strftime('%Y-%m-%d %H:%M:%S')
-        asize = os.path.getsize(apath)
-        amd5  = myhash.get_md5(apath)
-        asha1 = myhash.get_sha1(apath)
-        file_dict.append( (adate, index, afile, asize, amd5, asha1) )
-        index = index + 1
-
-    files = sorted(file_dict) 
-    return render_template('upload_file.html', files=files)
-
-@app.route('/uploaded/<filename>')
-# send_from_directory(): Show a [file] in server
-def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
-
-######################################
 
 #start server
 if __name__ == '__main__':

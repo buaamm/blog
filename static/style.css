@@ -1,15 +1,68 @@
-body            { font-family: 'YuMincho',游明朝,"Microsoft YaHei",微软雅黑,'consolas',sans-serif; background: #eee; }
-a, h1, h2       { color: #377BA8; }
-h1, h2          { font-family: 'YuMincho',游明朝,"Microsoft YaHei",微软雅黑,'consolas','Georgia', serif; margin: 0; }
-h1              { border-bottom: 2px solid #eee; }
-h2              { font-size: 1.8em; }
+body            { font-family: YuMincho, '游明朝', YuGothic, '游ゴシック', "Microsoft YaHei", 微软雅黑, serif, sans-serif;
+                    background: #FFBBFF; 
+                }
+a, h1, h2       { color: #8A2BE2; }
 
-.page           { margin: 2em auto; width: 35em; border: 5px solid #ccc; padding: 0.8em; background: white; }
+h1, h2          { font-family: 'YuMincho',游明朝,"Microsoft YaHei",微软雅黑,'consolas','Georgia', serif; margin: 0; }
+/*
+h1              { border-bottom: 2px solid #eee; }
+*/
+
+h2              { font-size: 1.2em; }
+
+.page           { margin: 2em auto; width: 50em; border: 5px solid #ccc; padding: 0.8em; background: white; }
 .entries        { list-style: none; margin: 0; padding: 0; }
-.entries li     { margin: 0.8em 1.2em; font-size:1.2em; }
+.entries li     { margin: 0.8em 1.2em; font-size:0.9em; }
 .entries li h2  { margin-left: -1em; }
-.add-entry      { font-size: 1.2em; border-bottom: 1px solid #ccc; }
+.add-entry      { font-size: 0.9em; border-bottom: 1px solid #ccc; }
 .add-entry dl   { font-weight: bold; }
 .metanav        { text-align: right; font-size: 1.2em; padding: 0.3em; margin-bottom: 1em; background: #fafafa; }
 .flash          { background: #CEE5F5; padding: 0.5em; border: 1px solid #AACBE2; }
 .error          { background: #F0D6D6; padding: 0.5em; }
+
+.video          { width:720px; height:600px; margin: 0 auto; }
+.contact        { width:720px;  margin: 0 auto; text-align:center; }
+
+.button         { width: 900px;
+                    height: 80px;
+                    font-color: #000000;
+                    font-size: 40px;
+                    border: 2px solid #f36;
+                    background: #ccc;
+                    text-align: center;
+                    border-radius: 20px / 20px; 
+                    margin: 50px auto;
+                }
+
+/*
+.shine          { -moz-box-shadow: 5px 5px 7px rgba(33,33,33,1);
+                    -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+                    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+                }
+*/
+
+.shine          { background: #FFFFFF;
+                    width: 440px;
+                    padding: 30px;
+                    /*text-transform: uppercase; */
+                }
+
+.shadow         { text-shadow: #FF0000 1px -4px 6px, #FF0000 1px 1px 1px, #FF5809 2px 2px 1px, #FFFF37 3px 3px 1px, #9AFF02 4px 4px 2px, #5A5AAD 5px 5px 2px, #6C3365 6px 6px 2px;
+                    opacity:0.5;
+                    font-size: 55px!important;
+                    font-weight: normal!important;
+                    /*
+                    font-family: "I-OTF-UDゴ表示Pro M","ヒラギノ角ゴ Pro W6", "HiraKakuPro-W6", sans-serif!important;
+                    */
+                    /* "微软雅黑", "Lucida Grande", "Lucida Sans", Helvetica, Arial, Sans;; */
+                }
+
+.shine-small    { color: #76EE00;
+                    text-shadow: #5A5AAD 1px -2px 6px;
+                    font-style: italic!important;
+                    font-size: 30px!important;
+                    font-weight: normal!important;
+                    font-family: 'Georgia', serif!important;
+                }
+
+

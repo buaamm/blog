@@ -1,11 +1,31 @@
 <!doctype html>
-<title>星夢のBlog</title>
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-<div class="page">
-    <h1>星夢のBlog</h1>
-    <div class="metanav">
-        {% if not session.logged_in %}
-        <form action="{{ url_for('login') }}" method="post">
+<html lang="ja">
+<meta charset="UTF-8" />
+<head>
+    {% block head %}
+    <title>星夢のブログ</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    {% endblock %}
+</head>
+<body>
+    <div class="page">
+        {% block welcome %}
+        <div class="shine">
+            <div class = "shadow">
+                <a href="{{ url_for('show_entries') }}">
+                星夢の<ruby> 楽園 <rt>パラダイス</rt> </ruby>
+                </a>
+            </div>
+            <div class="shine-small">
+                welcome to my paradise
+            </div>
+        </div>
+        {% endblock %}
+
+        {% block login %}
+        <div class="metanav">
+            {% if not session.logged_in %}
+            <form action="{{ url_for('login') }}" method="post">
             <dl>
                 <dt>Username:(admin)
                 <dd><input type="text" name="username">
@@ -13,15 +33,54 @@
                 <dd><input type="password" name="password">
                 <dd><input type="submit" value="Login GO">
             </dl>
-        </form>
-        {% else %}
-        <h2>お帰りなさいませ、御主人様。</h2><a href="{{ url_for('logout') }}">log out</a>
-        {% endif %}
+            </form>
+            {% else %}
+            <h2>お帰りなさいませ、御主人様。</h2><a href="{{ url_for('logout') }}">log out</a>
+            {% endif %}
+        </div>
+        {% endblock %}
+        
+        {% block flash %}
+            {% for massage in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+            {% endfor %}
+        {% endblock %}
+    
+        {% block body %}
+        {% endblock %}
+    
+        {% block entries %}
+            <h1>Comments</h1>
+            <ul class="entries">
+            {% for entry in entries %}
+                <li><h2>{{ entry.title }}</h2>{{ entry.text|safe }}
+            {% else %}
+                <li><em>No comments here so far</em>
+            {% endfor %}
+            </ul>
+        {% endblock %}
+        {% block comment %}
+            {% if session.logged_in %}
+            <h1>Leave a message</h1>
+            <form action="{{ url_for('add_entry') }}" method="post" class="add-entry">
+            <dl>
+                <dt>Title:
+                <dd><input type="text" size="30" name="title">
+                <dt>Text:
+                <dd><textarea rows="5" cols="40" name="text"></textarea>
+                <dd><input type="submit" value="Submit ^_^">
+            </dl>
+            </form>
+            {% else %}
+            <h1>Please LOGIN to leave a comment.</h1>
+            {% endif %}
+        {% endblock %}
+
+        {% block ending %}
+        <div class="contact">
+            <p>All Rights Reserved 2014-2024 Yishuai Ni <br> Any problem, Please <a href="mailto:buaamm@gmail.com">Contact Administrator</a>.</p>
+        </div>
+        {% endblock %}
     </div>
-    {% for massage in get_flashed_messages() %}
-    <div class="flash">{{ message }}</div>
-    {% endfor %}
-    {% block body %}
-    {% endblock %}
-</div>
+</body>
 

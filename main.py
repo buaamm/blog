@@ -15,7 +15,7 @@ DEBUG = True
 SECRET_KEY = 'development key'
 USERNAME = 'admin'
 PASSWORD ='default'
-UPLOAD_FOLDER = '/Users/niyishuai/lab/blog/files'
+UPLOAD_FOLDER = '/home/playcrab/lab/blog_stable/blog/files'
 
 #database utils
 def init_db():
@@ -115,7 +115,7 @@ def set_music():
     return render_template('set_music.html')
 
 
-ALLOWED_EXT = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'mp3', 'ogg', 'mp4'])
+ALLOWED_EXT = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'mp3', 'ogg', 'mp4', 'bmp', 'ico'])
 def check_filename(filename):
     return ('.' in filename) and (filename.rsplit('.', 1)[1] in ALLOWED_EXT)
 

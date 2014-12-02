@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Upload new File</h1>
+    <form role="form" action="" method=post enctype=multipart/form-data target='_blank'>
+        <div class="form-group">
+            <label for="filename_input">Filename</label>
+            <input type="text" class="form-control" id="filename_input" placeholder="Enter Filename">
+        </div>
+        <div class="form-group">
+            <label for="text_input">Description</label>
+            <input type="text" class="form-control" id="text_input" placeholder="Enter Description" name="text">
+        </div>
+        {# 
+        <div class="form-group">
+            <label for="email_input">Email address</label>
+            <input type="email" class="form-control" id="email_input" placeholder="Enter Email">
+        </div>
+        <div class="form-group">
+            <label for="password_input">Password</label>
+            <input type="password" class="form-control" id="password_input" placeholder="Enter Password">
+        </div>
+        #}
+        <div class="form-group">
+            <label for="file_input">File</label>
+            <input type="file" id="file_input" name=file>
+            <p class="help-block">Allowed types: 'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'mp3', 'ogg', 'mp4', 'bmp', 'ico'.</p>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox"> Test checkbox</label>
+        </div>
+        <button type="submit" class="btn btn-default">Upload GO!</button>
+    </form>
+    {#
+    <form action="" method=post enctype=multipart/form-data target='_blank'>
+      <p><input type=file name=file>
+        <input type=submit value=Upload>
+    </form>
+    #}
+
+<h1>Uploaded Files</h1>
+<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+    {# <colgroup>
+        <col class="col-xs-1 col-md-1">
+    </colgroup> #}
+    <thead>
+        <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>UID</th>
+        <th>File Name</th>
+        <th>Upload Date</th>
+        <th>Size(in Bytes)</th>
+        <th>Description</th>
+        <th>MD5 and SHA1</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for file in files %}
+        <tr>
+        <td class="success">{{ file[0] }}</td>
+        <td class="warning">{{ file[1] }}</td>
+        <td class="success">{{ file[2] }}</td>
+        <td class="danger"><a href="/uploaded/{{ file[3] }}" target="_blank">{{ file[3] }}</a></td>
+        <td class="info">{{ file[4] }}</td>
+        <td class="active">{{ file[5] }}</td>
+        <td class="success">{{ file[6] }}</td>
+        <td class="warning">{{ file[7] }}<br>{{ file[8] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</div>
+
+{% endblock %}

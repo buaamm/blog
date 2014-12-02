@@ -47,6 +47,7 @@
                 <dd><input type="submit" value="Login GO">
             </dl>
             </form>
+            <a href="{{ url_for('sign_up') }}">Sign up</a>
             {% else %}
             <h2>お帰りなさいませ、御主人様。<img src="{{ url_for('static', filename='milk.png') }}"  style="max-width:10%"></h2><a href="{{ url_for('logout') }}">log out</a>
             {% endif %}
@@ -54,9 +55,15 @@
         {% endblock %}
         
         {% block flash %}
-            {% for massage in get_flashed_messages() %}
-            <div class="flash">{{ message }}</div>
-            {% endfor %}
+            {% with massages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash"><ul>
+                {% for massage in messages %}
+                <li{{ message }}</li>
+                {% endfor %}
+                </ul></div>
+            {% endif %}
+            {% endwith %}
         {% endblock %}
     
         {% block body %}

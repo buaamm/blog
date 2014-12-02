@@ -418,3 +418,271 @@ Exception happened during processing of request from ('180.153.206.25', 51060)
 116.213.171.26 - - [02/Dec/2014 04:10:37] "POST /login HTTP/1.1" 302 -
 116.213.171.26 - - [02/Dec/2014 04:10:37] "GET / HTTP/1.1" 200 -
 116.213.171.26 - - [02/Dec/2014 04:10:37] "GET /static/milk.png HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 04:28:07] "GET / HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 04:28:07] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 04:30:39] "GET /video HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 04:30:45] "GET /upload HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 04:30:51] "GET /uploaded/IMG_20141127_144031.jpg HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "/usr/lib64/python2.6/SocketServer.py", line 283, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/usr/lib64/python2.6/SocketServer.py", line 309, in process_request
+    self.finish_request(request, client_address)
+  File "/usr/lib64/python2.6/SocketServer.py", line 322, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib64/python2.6/SocketServer.py", line 618, in __init__
+    self.finish()
+  File "/usr/lib64/python2.6/SocketServer.py", line 661, in finish
+    self.wfile.flush()
+  File "/usr/lib64/python2.6/socket.py", line 297, in flush
+    self._sock.sendall(buffer(data, write_offset, buffer_size))
+error: [Errno 32] Broken pipe
+116.213.171.26 - - [02/Dec/2014 04:31:07] "POST /upload HTTP/1.1" 302 -
+116.213.171.26 - - [02/Dec/2014 04:31:08] "GET /uploaded/2014-12-01_15.58.01.png HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 04:31:37] "GET /upload HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 04:31:38] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 -
+116.213.171.26 - - [02/Dec/2014 04:31:38] "GET /static/style.css HTTP/1.1" 304 -
+116.213.171.26 - - [02/Dec/2014 04:31:38] "GET /static/milk.png HTTP/1.1" 304 -
+42.120.145.42 - - [02/Dec/2014 11:10:05] "GET / HTTP/1.0" 200 -
+42.120.145.17 - - [02/Dec/2014 11:10:05] code 400, message Bad request version ('RTSP/1.0')
+42.120.145.17 - - [02/Dec/2014 11:10:05] "OPTIONS / RTSP/1.0" 400 -
+42.120.145.212 - - [02/Dec/2014 11:10:05] "OPTIONS / HTTP/1.0" 200 -
+42.120.145.49 - - [02/Dec/2014 11:10:10] code 400, message Bad request syntax ('\x80\x00\x00(r\xfe\x1d\x13\x00\x00\x00\x00\x00\x00\x00\x02\x00\x01\x86\xa0\x00\x01\x97|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+42.120.145.49 - - [02/Dec/2014 11:10:10] "€  (rþ        †  —|                    " 400 -
+42.120.145.250 - - [02/Dec/2014 11:10:15] code 400, message Bad request syntax ('\x00\x1e\x00\x06\x01\x00\x00\x01\x00\x00\x00\x00\x00\x00\x07version\x04bind\x00\x00\x10\x00\x03')
+42.120.145.250 - - [02/Dec/2014 11:10:15] "          versionbind   " 400 -
+42.120.145.250 - - [02/Dec/2014 11:10:20] code 400, message Bad HTTP/0.9 request type ('\x00')
+42.120.145.250 - - [02/Dec/2014 11:10:20] "            " 400 -
+42.120.145.42 - - [02/Dec/2014 11:10:20] code 400, message Bad request syntax ('HELP')
+42.120.145.42 - - [02/Dec/2014 11:10:20] "HELP" 400 -
+42.120.145.212 - - [02/Dec/2014 11:10:20] code 400, message Bad request syntax ('\x16\x03\x00\x00S\x01\x00\x00O\x03\x00?G\xd7\xf7\xba,\xee\xea\xb2`~\xf3\x00\xfd\x82{\xb9\xd5\x96\xc8w\x9b\xe6\xc4\xdb<=\xdbo\xef\x10n\x00\x00(\x00\x16\x00\x13\x00')
+42.120.145.212 - - [02/Dec/2014 11:10:20] "  S  O ?G×÷º,îê²`~ó ý‚{¹Õ–Èw›æÄÛ<=Ûoïn  (   " 400 -
+42.120.145.25 - - [02/Dec/2014 11:10:25] code 400, message Bad request syntax ('\x00\x00\x00\xa4\xffSMBr\x00\x00\x00\x00\x08\x01@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00@\x06\x00\x00\x01\x00\x00\x81\x00\x02PC NETWORK PROGRAM 1.0\x00\x02MICROSOFT NETWORKS 1.03\x00\x02MICROSOFT NETWORKS 3.0\x00\x02LANMAN1.0\x00\x02LM1.2X002\x00\x02Samba\x00\x02NT LANMAN 1.0\x00\x02NT LM 0.12\x00')
+42.120.145.25 - - [02/Dec/2014 11:10:25] "   ¤ÿSMBr    @              @     PC NETWORK PROGRAM 1.0 MICROSOFT NETWORKS 1.03 MICROSOFT NETWORKS 3.0 LANMAN1.0 LM1.2X002 Samba NT LANMAN 1.0 NT LM 0.12 " 400 -
+42.120.145.49 - - [02/Dec/2014 11:10:30] code 400, message Bad HTTP/0.9 request type ('l\x00')
+42.120.145.49 - - [02/Dec/2014 11:10:30] "l          " 400 -
+42.120.145.249 - - [02/Dec/2014 11:10:30] "GET /nice%20ports%2C/Tri%6Eity.txt%2ebak HTTP/1.0" 404 -
+42.120.145.119 - - [02/Dec/2014 11:10:30] code 400, message Bad request syntax ('\x01default')
+42.120.145.119 - - [02/Dec/2014 11:10:30] "default" 400 -
+42.120.145.249 - - [02/Dec/2014 11:10:35] code 400, message Bad HTTP/0.9 request type ('0')
+42.120.145.249 - - [02/Dec/2014 11:10:35] "0` € " 400 -
+42.120.145.49 - - [02/Dec/2014 11:10:40] code 400, message Bad request syntax ('TNMP\x04\x00\x00\x00TNME\x00\x00\x04\x00')
+42.120.145.49 - - [02/Dec/2014 11:10:40] "TNMP   TNME   " 400 -
+42.120.145.118 - - [02/Dec/2014 11:10:45] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00')
+42.120.145.118 - - [02/Dec/2014 11:10:45] "  à     " 400 -
+42.120.145.16 - - [02/Dec/2014 11:10:50] code 400, message Bad request syntax ('DmdT\x00\x00\x00\x17\x00\x00\x00\x01\x00\x00\x00\x00\x11\x11\x00\xff\x01\xff\x13')
+42.120.145.16 - - [02/Dec/2014 11:10:50] "DmdT           ÿÿ" 400 -
+42.120.145.24 - - [02/Dec/2014 11:10:55] code 400, message Bad request syntax (':\x00\x00\x00/\x00\x00\x00\x02\x00\x00@\x02\x0f\x00\x01\x00=\x05\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/\x00\x00\x00\x00\x00\x00\x00\x00\x00@\x1f\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+42.120.145.24 - - [02/Dec/2014 11:10:55] ":   /     @  =            /         @                 " 400 -
+42.120.145.247 - - [02/Dec/2014 11:10:55] code 400, message Bad request version ('>')
+42.120.145.247 - - [02/Dec/2014 11:10:55] "< NTP/1.0 >" 400 -
+42.120.145.209 - - [02/Dec/2014 11:11:00] code 400, message Bad request syntax ('\x01\x00\x00\xfd\xce\xfa\x0b\xb0\xa0\x00\x00\x00MMS\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x12\x00\x00\x00\x01\x00\x03\x00\xf0\xf0\xf0\xf0\x0b\x00\x04\x00\x1c\x00\x03\x00N\x00S\x00P\x00l\x00a\x00y\x00e\x00r\x00/\x009\x00.\x000\x00.\x000\x00.\x002\x009\x008\x000\x00;\x00 \x00{\x000\x000\x000\x000\x00A\x00A\x000\x000\x00-\x000\x00A\x000\x000\x00-\x000\x000\x00a\x000\x00-\x00A\x00A\x000\x00A\x00-\x000\x000\x000\x000\x00A\x000\x00A\x00A\x000\x00A\x00A\x000\x00}\x00\x00\x00\xe0m\xdf_')
+42.120.145.209 - - [02/Dec/2014 11:11:00] "  ýÎú°    MMS                    ðððð    N S P l a y e r / 9 . 0 . 0 . 2 9 8 0 ;   { 0 0 0 0 A A 0 0 - 0 A 0 0 - 0 0 a 0 - A A 0 A - 0 0 0 0 A 0 A A 0 A A 0 }   àmß_" 400 -
+42.120.145.24 - - [02/Dec/2014 11:11:05] code 400, message Bad HTTP/0.9 request type ('\x00Z\x00\x00\x01\x00\x00\x00\x016\x01,\x00\x00\x08\x00\x7f\xff\x7f\x08\x00\x00\x00\x01\x00')
+42.120.145.24 - - [02/Dec/2014 11:11:05] " Z     6,   ÿ      :                4æ           (CONNECT_DATA=(COMMAND=version))" 400 -
+123.150.182.169 - - [02/Dec/2014 13:10:16] "GET / HTTP/1.1" 200 -
+123.150.182.169 - - [02/Dec/2014 13:10:16] "GET /static/style.css HTTP/1.1" 200 -
+123.150.182.169 - - [02/Dec/2014 13:10:16] "GET /static/favicon.ico HTTP/1.1" 200 -
+123.150.182.169 - - [02/Dec/2014 13:10:16] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:10:16] "GET /static/style.css HTTP/1.1" 304 -
+116.213.171.26 - - [02/Dec/2014 13:10:17] "GET /static/favicon.ico HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:10:43] "POST /login HTTP/1.1" 302 -
+116.213.171.26 - - [02/Dec/2014 13:10:43] "GET / HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:10:44] "GET /static/milk.png HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:12:12] "GET /upload HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:13:20] "GET /upload HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:33:12] "GET / HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:33:15] "GET / HTTP/1.1" 200 -
+113.142.17.149 - - [02/Dec/2014 13:34:14] "GET / HTTP/1.1" 200 -
+113.142.17.149 - - [02/Dec/2014 13:34:14] "GET /static/style.css HTTP/1.1" 200 -
+113.142.17.149 - - [02/Dec/2014 13:34:14] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+113.142.17.149 - - [02/Dec/2014 13:34:14] "GET /static/favicon.ico HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:34:15] "POST /login HTTP/1.1" 302 -
+116.213.171.26 - - [02/Dec/2014 13:34:15] "GET / HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:34:15] "GET /static/favicon.ico HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:37:58] "POST /login HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:37:58] "POST /login HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:37:58] "POST /login HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:37:58] "GET / HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:37:58] "GET / HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:37:58] "GET / HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:37:58] "GET / HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:37:58] "GET / HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:38:11] "POST /login HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:39:53] "GET / HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:40:20] "GET /upload HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:40:53] "GET /uploaded/2014-12-01_15.58.01.png HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:40:55] "GET /favicon.ico HTTP/1.1" 404 -
+110.96.185.216 - - [02/Dec/2014 13:41:01] "GET /video HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:41:39] "GET /video HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:43:20] "GET /upload HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:43:22] "GET /uploaded/IMG_20141127_144031.jpg HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:43:27] "GET /favicon.ico HTTP/1.1" 404 -
+110.96.185.216 - - [02/Dec/2014 13:43:39] "GET /uploaded/IMG_20141127_144031.jpg HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:43:43] "GET /favicon.ico HTTP/1.1" 404 -
+110.96.185.216 - - [02/Dec/2014 13:44:58] "GET /uploaded/2014-12-01_15.58.01.png HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:44:58] "GET /uploaded/2014-12-01_15.58.01.png HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "/usr/lib64/python2.6/SocketServer.py", line 283, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/usr/lib64/python2.6/SocketServer.py", line 309, in process_request
+    self.finish_request(request, client_address)
+  File "/usr/lib64/python2.6/SocketServer.py", line 322, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib64/python2.6/SocketServer.py", line 618, in __init__
+    self.finish()
+  File "/usr/lib64/python2.6/SocketServer.py", line 661, in finish
+    self.wfile.flush()
+  File "/usr/lib64/python2.6/socket.py", line 297, in flush
+    self._sock.sendall(buffer(data, write_offset, buffer_size))
+error: [Errno 32] Broken pipe
+110.96.185.216 - - [02/Dec/2014 13:44:59] "GET /favicon.ico HTTP/1.1" 404 -
+110.96.185.216 - - [02/Dec/2014 13:45:12] "GET /uploaded/trans_milk.png HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:45:13] "GET /favicon.ico HTTP/1.1" 404 -
+110.96.185.216 - - [02/Dec/2014 13:45:15] "GET /uploaded/milk_last2.png HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:45:17] "GET /favicon.ico HTTP/1.1" 404 -
+110.96.185.216 - - [02/Dec/2014 13:45:22] "GET /uploaded/CG01360.bmp HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:45:22] "GET /uploaded/CG01360.bmp HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "/usr/lib64/python2.6/SocketServer.py", line 283, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/usr/lib64/python2.6/SocketServer.py", line 309, in process_request
+    self.finish_request(request, client_address)
+  File "/usr/lib64/python2.6/SocketServer.py", line 322, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib64/python2.6/SocketServer.py", line 618, in __init__
+    self.finish()
+  File "/usr/lib64/python2.6/SocketServer.py", line 661, in finish
+    self.wfile.flush()
+  File "/usr/lib64/python2.6/socket.py", line 297, in flush
+    self._sock.sendall(buffer(data, write_offset, buffer_size))
+error: [Errno 32] Broken pipe
+110.96.185.216 - - [02/Dec/2014 13:45:23] "GET /favicon.ico HTTP/1.1" 404 -
+116.213.171.26 - - [02/Dec/2014 13:45:40] "GET /upload HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:45:40] "GET /static/style.css HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:45:40] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:45:40] "GET /static/milk.png HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:46:01] "POST /login HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:46:37] "GET /logout HTTP/1.1" 302 -
+116.213.171.26 - - [02/Dec/2014 13:46:37] "GET / HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:47:03] "POST /login HTTP/1.1" 302 -
+110.96.185.216 - - [02/Dec/2014 13:47:03] "GET / HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:47:04] "GET /static/milk.png HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:47:36] "GET /video HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:47:36] "GET /upload HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:47:36] "GET /upload HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:47:44] "POST /login HTTP/1.1" 302 -
+116.213.171.26 - - [02/Dec/2014 13:47:44] "GET / HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:47:48] "GET / HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:47:50] "GET /favicon.ico HTTP/1.1" 404 -
+110.96.185.216 - - [02/Dec/2014 13:48:04] "GET / HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:48:04] "GET / HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:48:34] "GET / HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:48:34] "GET /upload HTTP/1.1" 200 -
+110.96.185.216 - - [02/Dec/2014 13:48:34] "GET /upload HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:48:40] "GET /video HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:48:44] "GET /upload HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:48:52] "GET /uploaded/IMG_20141127_144031.jpg HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:49:01] "GET /uploaded/CG01360.bmp HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 13:52:27] "GET / HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 13:52:27] "GET / HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 13:52:27] "GET /static/style.css HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 13:52:27] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 13:52:28] "GET /static/favicon.ico HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 13:52:32] "POST /login HTTP/1.1" 302 -
+123.117.169.210 - - [02/Dec/2014 13:52:32] "GET / HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 13:52:33] "GET /static/milk.png HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 13:52:40] "GET /upload HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 13:52:49] "GET /uploaded/IMG_20141127_144031.jpg HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 13:53:09] "GET / HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 13:53:44] "GET /video HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 13:53:51] "GET /upload HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 13:53:51] "GET /music HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/mnt/playcrab/lab/venv/lib/python2.6/site-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/mnt/playcrab/lab/venv/lib/python2.6/site-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/mnt/playcrab/lab/venv/lib/python2.6/site-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/mnt/playcrab/lab/venv/lib/python2.6/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/mnt/playcrab/lab/venv/lib/python2.6/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/mnt/playcrab/lab/venv/lib/python2.6/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/mnt/playcrab/lab/venv/lib/python2.6/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/mnt/playcrab/lab/venv/lib/python2.6/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/mnt/playcrab/lab/blog_stable/blog/main.py", line 115, in set_music
+    return render_template('set_music.html')
+  File "/mnt/playcrab/lab/venv/lib/python2.6/site-packages/flask/templating.py", line 127, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/mnt/playcrab/lab/venv/lib/python2.6/site-packages/jinja2/environment.py", line 830, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/mnt/playcrab/lab/venv/lib/python2.6/site-packages/jinja2/environment.py", line 791, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/mnt/playcrab/lab/venv/lib/python2.6/site-packages/jinja2/environment.py", line 765, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/mnt/playcrab/lab/venv/lib/python2.6/site-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/mnt/playcrab/lab/venv/lib/python2.6/site-packages/flask/templating.py", line 64, in get_source
+    raise TemplateNotFound(template)
+TemplateNotFound: set_music.html
+123.117.169.210 - - [02/Dec/2014 13:53:58] "GET /favicon.ico HTTP/1.1" 404 -
+123.117.169.210 - - [02/Dec/2014 13:54:17] "GET /upload HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 13:54:22] "GET /uploaded/trans_milk.png HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 13:54:47] "GET /upload HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 13:54:47] "GET /static/style.css HTTP/1.1" 304 -
+123.117.169.210 - - [02/Dec/2014 13:54:47] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 -
+123.117.169.210 - - [02/Dec/2014 13:54:47] "GET /static/milk.png HTTP/1.1" 304 -
+123.117.169.210 - - [02/Dec/2014 13:54:49] "GET /uploaded/milk_last2.png HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 13:55:30] "GET / HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 13:56:57] "GET /upload HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 14:00:07] "GET / HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 14:00:30] "POST /add HTTP/1.1" 302 -
+123.117.169.210 - - [02/Dec/2014 14:00:30] "GET / HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 14:00:42] "GET / HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 14:01:08] "GET /upload HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 14:01:12] "GET /uploaded/favicon.ico HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 14:03:41] "GET /upload HTTP/1.1" 200 -
+123.117.169.210 - - [02/Dec/2014 14:03:42] "GET /static/style.css HTTP/1.1" 304 -
+123.117.169.210 - - [02/Dec/2014 14:03:42] "GET /static/milk.png HTTP/1.1" 304 -
+123.117.169.210 - - [02/Dec/2014 14:03:42] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 -
+123.117.169.210 - - [02/Dec/2014 14:03:52] "GET /static/ HTTP/1.1" 404 -
+123.117.169.210 - - [02/Dec/2014 14:04:03] "GET /static/fav.ioc HTTP/1.1" 404 -
+123.117.169.210 - - [02/Dec/2014 14:04:08] "GET /static/fav.ico HTTP/1.1" 404 -
+116.213.171.26 - - [02/Dec/2014 14:04:21] "GET /static/favicon.ico HTTP/1.1" 304 -
+113.105.95.122 - - [02/Dec/2014 15:08:40] "GET / HTTP/1.1" 200 -
+ * Detected change in 'main.py', reloading
+----------------------------------------
+Exception happened during processing of request from ('116.213.171.26', 51990)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('110.96.185.216', 59323)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('110.96.185.216', 59336)
+----------------------------------------
+ * Restarting with reloader
+ * Detected change in 'main.py', reloading
+ * Restarting with reloader
+116.213.171.26 - - [02/Dec/2014 15:39:58] "GET / HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 15:39:58] "GET / HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 15:40:00] "GET /upload HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 15:40:13] "POST /upload HTTP/1.1" 302 -
+116.213.171.26 - - [02/Dec/2014 15:40:13] "GET /uploaded/2014-12-01_15.37.45.png HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 15:40:29] "GET /upload HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 15:40:29] "GET /static/style.css HTTP/1.1" 304 -
+116.213.171.26 - - [02/Dec/2014 15:40:29] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 -
+116.213.171.26 - - [02/Dec/2014 15:40:29] "GET /static/milk.png HTTP/1.1" 304 -
+116.213.171.26 - - [02/Dec/2014 15:40:29] "GET /static/favicon.ico HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 15:40:38] "GET /upload HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 15:40:38] "GET /static/style.css HTTP/1.1" 304 -
+116.213.171.26 - - [02/Dec/2014 15:40:38] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 -
+116.213.171.26 - - [02/Dec/2014 15:40:38] "GET /static/milk.png HTTP/1.1" 304 -
+116.213.171.26 - - [02/Dec/2014 15:40:39] "GET /upload HTTP/1.1" 200 -
+116.213.171.26 - - [02/Dec/2014 15:40:39] "GET /static/style.css HTTP/1.1" 304 -
+116.213.171.26 - - [02/Dec/2014 15:40:39] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 -
+116.213.171.26 - - [02/Dec/2014 15:40:39] "GET /static/milk.png HTTP/1.1" 304 -

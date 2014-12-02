@@ -8,6 +8,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, render_t
 # import model
 import myhash
 
+app_path = os.getcwd()
 
 #configuration
 DATABASE = '/tmp/blog.db'
@@ -15,7 +16,7 @@ DEBUG = True
 SECRET_KEY = 'development key'
 USERNAME = 'admin'
 PASSWORD ='default'
-UPLOAD_FOLDER = '/home/playcrab/lab/blog_stable/blog/files'
+UPLOAD_FOLDER = app_path + '/files'
 
 #database utils
 def init_db():

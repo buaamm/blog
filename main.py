@@ -4,13 +4,16 @@ import datetime
 from werkzeug import secure_filename
 from sqlite3 import dbapi2 as sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash, send_from_directory
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 # import model
 import myhash
 
 app_path = os.getcwd()
 
-#configuration
+#configuration----------------------------------------------------------------
 DATABASE = '/tmp/blog.db'
 DEBUG = True
 SECRET_KEY = 'development key'
@@ -18,7 +21,7 @@ SECRET_KEY = 'development key'
 #PASSWORD ='default'
 UPLOAD_FOLDER = app_path + '/files'
 
-#database utils
+#database utils---------------------------------------------------------------
 def init_db():
     """Initializes the database."""
     with app.app_context():
@@ -47,7 +50,7 @@ def query_db(query, args=(), one=False):
     cur.close()
     return (res[0] if res else None) if one else res
 
-#create application
+#create application-----------------------------------------------------------------
 app = Flask(__name__)
 app.config.from_object(__name__) # import and look for all UPPERCASE variables defined
 
@@ -70,7 +73,7 @@ def close_db(error):
 @app.route('/') #---------- homepage ----------
 def homepage():
     g.db = connect_db()
-    cur = g.db.execute('select title, create_time, text from entries order by id desc')
+    cur = g.db.execute('select entries.id, entries.userid, entries.title, entries.create_time, entries.text, users.username from entries, users where entries.userid=users.id order by entries.create_time desc')
     entries = cur.fetchall()
     return render_template('homepage.html', entries=entries)
 
@@ -80,20 +83,17 @@ def add_entry():
         abort(401) # will never happen
     db = get_db()
     cur_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+    if not session.get('userid'): session['userid'] = -1
     db.execute('insert into entries (userid, title, create_time, text) values (?, ?, ?, ?)',
-            [0, request.form['title'], cur_time, request.form['text']])
+            [session['userid'], request.form['title'], cur_time, request.form['text']])
     db.commit()
     flash('New entry was successfully posted.')
     return redirect(url_for('homepage'))
 
 def get_userid(username):
     g.db = connect_db()
-    cur = g.db.execute('select id from users where username="%s"' % username)
-    res = cur.fetchall()
-    if len(res) == 0:
-        return -1
-    else:
-        return res[0][0]
+    res = g.db.execute('select id from users where username="%s"' % username).fetchall()
+    return -1 if (len(res) == 0) else res[0][0]
 
 @app.route('/sign_up', methods=['GET', 'POST']) #---------- sign up ----------
 def sign_up():
@@ -112,7 +112,7 @@ def sign_up():
             return render_template('sign_up.html', error=error)
         password = myhash.calc_sha1(password)
         db = get_db()
-        db.execute('insert into users (username, password, create_time) values (?, ?, ?)',
+        db.execute('insert into users (username, password, create_time, birthday, sex, description) values (?, ?, ?, "", -1, "")',
                 [username, password, cur_time])
         db.commit()
         flash('Welcome New user: %s!' % username)
@@ -161,9 +161,36 @@ def logout():
     flash('You were logged out')
     return redirect(url_for('homepage'))
 
-#@app.route('/profile/<int:user_id>')
-#def profile():
-#    
+@app.route('/profile', methods=['GET', 'POST'])
+def profile():
+    if request.method ==  'POST':
+        db = get_db()
+        if len(request.form['password']) >=3:
+            password = myhash.calc_sha1( request.form['password'] )
+            db.execute('update users set password="%s", birthday="%s", description="%s", sex="%s" where id="%s"' % 
+                (password, request.form['birthday'], request.form['description'], request.form['sex'], str(session["userid"])) )
+        else:
+            db.execute('update users set birthday="%s", description="%s", sex="%s" where id="%s"' % 
+                (request.form['birthday'], request.form['description'], request.form['sex'], str(session["userid"])) )
+        db.commit()
+        return redirect(url_for('user', username=session["username"]))
+    g.db = connect_db()
+    res = g.db.execute('select id, username, create_time, birthday, sex, description from users where id="%s"' % str(session["userid"]) ).fetchall()
+    assert len(res) == 1 # TODO: Need test
+    return render_template('profile.html', userinfo=res[0])
+    
+@app.route('/user/<username>')
+def user(username):
+    error = None
+    g.db = connect_db()
+    res = g.db.execute('select id, username, create_time, birthday, sex, description from users where username="%s"' % username).fetchall()
+    userinfo = (list)(res[0])
+    userinfo[4] = myhash.sex_repr(userinfo[4])
+    if len(res) == 0:
+        error = "User not found! Show admin instead."
+        res = g.db.execute('select id, username, create_time, birthday, sex, description from users where username="admin"').fetchall()
+    return render_template('user.html', userinfo=userinfo, error=error)
+    
 
 @app.route('/video')
 def show_video():
@@ -183,8 +210,7 @@ def upload():
             # TODO: filename DIY, user
             # TODO: file already exist
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename)) # save(): save file permanently
-            if not session.get('userid'):
-                session['userid'] = -1
+            if not session.get('userid'): session['userid'] = -1
             cur_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
             db = get_db()
             db.execute('insert into files (userid, filename, upload_time, text) values (?, ?, ?, ?)',

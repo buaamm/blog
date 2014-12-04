@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container-fluid">
+<h1>My Profile</h1>
+        <div class="row">
+        </div>
+    <form role="form" action="" method=post>
+        <div class="form-group"><div class="row">
+        <label class="col-md-2 control-label">Username</label>
+        <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="{{ session.username }}" name=username disabled>
+        </div></div></div>
+        
+        <div class="form-group"><div class="row">
+        <label class="col-md-2 control-label" for="password_input">Password</label>
+        <div class="col-md-6">
+        <input type="password" class="form-control" id="password_input" placeholder="Enter Password" name="password" value="" autocomplete="off">
+        </div></div></div>
+        
+        <div class="form-group"><div class="row">
+        <label class="col-md-2 control-label" for="birthday_input">Birthday</label>
+        <div class="col-md-6">
+        <input type="date" class="form-control" id="birthday_input" name="birthday">
+        </div></div></div>
+        
+        <div class="form-group"><div class="row">
+        <label class="col-md-2 control-label">Description</label>
+        <div class="col-md-6">
+        <textarea class="form-control" rows="3" name="description" placeholder="Introduce yourself"></textarea>
+        </div></div></div>
+
+        <div class="form-group"><div class="row">
+        <label class="col-md-2 control-label">Gender</label>
+        <div class="col-md-6">
+            <select class="form-control" name="sex" id="sex_input">
+            <option value="-1"></option>
+            <option value="0"> Male (男性)</option>
+            <option value="1"> Female (女性)</option>
+            <option value="2"> Gay (男性同性愛者)</option>
+            <option value="3"> Lesbian (女性同性愛者)</option>
+            <option value="4"> Bisexual (両性愛者)</option>
+            <option value="5"> Transgender (性転換者・異性装同性愛者など)</option>
+            <option value="6"> Transsexual (性転換者)</option>
+            <option value="7"> Transvestite/Crossdresser (異性装者)</option>
+            <option value="8"> Two-spirit (二つの精神を持った者)</option>
+            <option value="9"> Asexual (無性愛)</option>
+            <option value="10"> Queer</option>
+            <option value="11"> FagHag</option>
+            <option value="12"> Homophobia</option>
+            <option value="13"> MoneyBoy</option>
+            <option value="14"> Queen</option>
+            <option value="15"> King</option>
+            <option value="16"> Butch</option>
+            <option value="17"> Intersex</option>
+            <option value="18"> Otaku (御宅) </option>
+            <option value="19"> BoysLoveComplex (腐女子/腐男子)</option>
+            <option value="20"> GirlsLoveComplex (百合好き) </option>
+            <option value="21"> SisterComplex (シスコン) </option>
+            <option value="22"> BrotherComplex (ブラコン) </option>
+            <option value="23"> ElectraComplex (父親に対して愛情を抱く女児) </option>
+            <option value="24"> OedipusComplex (母親に対して愛情を抱く男児) </option>
+            <option value="25"> Hentai (変態)</option>
+            <option value="26"> Other </option>
+            <option value="27"> Unknown/Private</option>
+            </select>
+        </div></div></div>
+        <button type="submit" class="btn btn-default">Submit GO!</button>
+    </form>
+</div>
+{% endblock %}

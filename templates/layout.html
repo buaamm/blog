@@ -21,40 +21,155 @@
     {% endblock %}
 </head>
 <body>
-    <div class="page">
-        {% block welcome %}
-        <div class="shine">
-            <div class = "shadow">
-                <a href="{{ url_for('homepage') }}">
-                星夢の<ruby> 楽園 <rt>パラダイス</rt> </ruby>
-                </a>
-            </div>
-            <div class="shine-small">
-                welcome to my paradise
+<div class="container" id="block1">
+    <div class="row" style="position:relative; height:300px">
+    
+    {% block welcome %}
+        <div class="col-md-5 col-sm-12 col-xs-12" id="block11">
+            <div class="shine">
+                <div class = "shadow">
+                <a href="{{ url_for('homepage') }}">星夢の<ruby> 楽園 <rt>パラダイス</rt> </ruby></a>
+                </div>
+                <div class="shine-small">welcome to my paradise</div>
             </div>
         </div>
-        {% endblock %}
 
-        {% block login %}
-        <div class="metanav">
-            {% if not session.logged_in %}
-            <form action="{{ url_for('login') }}" method="post">
-            <dl>
-                <dt>Username:(admin)
-                <dd><input type="text" name="username">
-                <dt>Password:(default)
-                <dd><input type="password" name="password">
-                <dd><input type="submit" value="Login GO">
-            </dl>
-            </form>
-            <a href="{{ url_for('sign_up') }}">Sign up</a>
+        <div class="col-md-5 col-sm-12 col-xs-12" id="block12">
+            <div class="metanav">
+                {% if not session.logged_in %}
+                <div class="container-fluid" id="form_login">
+                    <h1>Login</h1>
+                    <form role="form" action="{{ url_for('login') }}" method="post">
+                        <div class="form-group"><div class="row">
+                            <label class="col-md-6 col-sm-6 col-xs-6 control-label">Username</label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                            <input type="text" class="form-control" placeholder="{{ session.username }}" name=username>
+                        </div></div></div>
+                        <div class="form-group"><div class="row">
+                            <label class="col-md-6 col-sm-6 col-xs-6 control-label" for="password_input">Password</label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                            <input type="password" class="form-control" id="password_input" placeholder="Enter Password" name="password" value="" autocomplete="off">
+                        </div></div></div>
+                        <button type="submit" role="button" class="btn btn-primary btn-lg">Login<img src="{{ url_for('static', filename='favicon.ico' ) }}"></button>
+                        <button type="button" role="button" class="btn btn-warning btn-lg" onclick="Change()">→ Sign Up<img src="{{ url_for('static', filename='fav2.ico') }}"></button>
+                    </form>
+                </div>
+                <div class="container-fluid" id="form_signup">
+                    <h1>Sign Up</h1>
+                    <form role="form" action="{{ url_for('sign_up') }}" method="post">
+                        <div class="form-group"><div class="row">
+                            <label class="col-md-6 col-sm-6 col-xs-6 control-label">Username</label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                            <input type="text" class="form-control" placeholder="A New Name" name=username>
+                        </div></div></div>
+                        <div class="form-group"><div class="row">
+                            <label class="col-md-6 col-sm-6 col-xs-6 control-label" for="password_input">Password</label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                            <input type="password" class="form-control" id="password_input" placeholder="Enter Password" name="password" value="" autocomplete="off">
+                        </div></div></div>
+                        <button type="submit" role="button" class="btn btn-primary btn-lg">Sign Up<img src="{{ url_for('static', filename='fav2.ico' ) }}"></button>
+                        <button type="button" role="button" class="btn btn-warning btn-lg" onclick="Change()">→ Login<img src="{{ url_for('static', filename='favicon.ico') }}"></button>
+                    </form>
+                </div>
             {% else %}
-            <h2>お帰りなさいませ、御主人様。<img src="{{ url_for('static', filename='milk.png') }}"  style="max-width:10%"></h2><a href="{{ url_for('logout') }}">log out</a>
+                <h2 id="welcome">お帰りなさいませ</h2>
+                <h2><a href="{{ url_for('user', username=session.username) }}">{{ session.username }}</a> 様</h2>
+                <h3><a href="{{ url_for('profile') }}">Edit Profile</a> | <a href="{{ url_for('logout') }}">Log Out</a></h3>
             {% endif %}
+            </div>
         </div>
-        {% endblock %}
+
+        <div class="col-md-2 col-sm-5 col-xs-5" id="block13"><img src="{{ url_for('static', filename='milk.png') }}"  style="height:300px">
+        </div>
         
-        {% block flash %}
+        <div class="play" id="play"> 
+        <div class="inplay" id="inplay"> 
+            <div class="header_flow" id="play1">
+            <img src="/static/header/A1.png">
+            <img src="/static/header/A2.png">
+            <img src="/static/header/A3.png">
+            <img src="/static/header/A4.png">
+            <img src="/static/header/A5.png">
+            <img src="/static/header/A6.png">
+            <img src="/static/header/A7.png">
+            <img src="/static/header/A8.png">
+            <img src="/static/header/A9.png">
+            <img src="/static/header/A10.png">
+            <img src="/static/header/A11.png">
+            <img src="/static/header/A12.png">
+            <img src="/static/header/A13.png">
+            <img src="/static/header/A14.png">
+            </div>
+            <div class="header_flow" id="play2">
+            </div>
+        </div>
+        </div>
+        {% if session.username == "root" %}
+        <div class="play" id="playhentai"> 
+        <div class="inplay" id="inplayhentai"> 
+            <div class="header_flow" id="play1hentai">
+            <img src="/static/header/B1.png">
+            <img src="/static/header/B2.png">
+            <img src="/static/header/B3.png">
+            <img src="/static/header/B4.png">
+            <img src="/static/header/B5.png">
+            <img src="/static/header/B6.png">
+            <img src="/static/header/B7.png">
+            <img src="/static/header/B8.png">
+            <img src="/static/header/B9.png">
+            <img src="/static/header/B10.png">
+            <img src="/static/header/B11.png">
+            <img src="/static/header/B12.png">
+            <img src="/static/header/B13.png">
+            <img src="/static/header/B14.png">
+            </div>
+            <div class="header_flow" id="play2hentai">
+            </div>
+        </div>
+        </div>
+        {% endif %}
+    {% endblock %}
+    </div>
+</div>
+<script type="text/javascript">
+    function $(id) { return document.getElementById(id); }
+    var freqslow=10;
+    var freqfast=2;
+    var tabfather=$("block1");
+    var tab=$("play");
+    var tabhentai=$("playhentai");
+    var tab1=$("play1");
+    var tab2=$("play2");
+    var tab1hentai=$("play1hentai");
+    var tab2hentai=$("play2hentai");
+    tab2.innerHTML=tab1.innerHTML;
+    if(tabhentai)tab2hentai.innerHTML=tab1hentai.innerHTML;
+    var small=0; if(screen.width<800) { /* small=1; tab.innerHTML="";*/ }
+    function Marquee(){
+        if(tab2.offsetWidth - tab.scrollLeft <= 0) { tab.scrollLeft -= tab1.offsetWidth; }
+        else { tab.scrollLeft += 1; }
+        if(tabhentai){ tabhentai.scrollLeft = tab.scrollLeft;}
+    }
+    var MyMar=setInterval(Marquee,freqfast);
+    tabfather.onmouseover=function() {
+        if(small)return; clearInterval(MyMar);MyMar=setInterval(Marquee,freqslow); tab.style.opacity="0.6";
+        if(tabhentai) {tabhentai.style.zIndex="49"; tabhentai.style.visibility="visible"; tab.style.visibility="hidden"; }
+    };
+    tabfather.onmouseout=function() {if(small)return;
+        clearInterval(MyMar);MyMar=setInterval(Marquee,freqfast); tab.style.opacity="0.2";
+        if(tabhentai) {tabhentai.style.zIndex="0"; tabhentai.style.visibility="hidden"; tab.style.visibility="visible"; }
+    };
+    flag_init=1;
+    var login=$("form_login");
+    var signup=$("form_signup");
+    function Change(){
+        if(flag_init==1){ flag_init=0; login.style.display="none"; signup.style.display="block"; }
+        else{ flag_init=1;  login.style.display="block"; signup.style.display="none"; }
+    }
+</script>
+
+<div class="container">
+    {% block flash %}
             {% with massages = get_flashed_messages() %}
             {% if messages %}
                 <div class="flash"><ul>
@@ -64,16 +179,16 @@
                 </ul></div>
             {% endif %}
             {% endwith %}
-        {% endblock %}
+    {% endblock %}
     
-        {% block body %}
-        {% endblock %}
+    {% block body %}
+    {% endblock %}
     
         {% block entries %}
             <h1>Comments</h1>
             <ul class="entries">
             {% for entry in entries %}
-                <li><h2>{{ entry.title }}</h2>{{ entry.text|safe }}
+                <li><h2>{{ entry[2] }} (by <a href="{{ url_for('user', username=entry[5]) }}">@{{ entry[5] }}</a> )<small>{{ entry[3] }}</small></h2>{{ entry.text|safe }}
             {% else %}
                 <li><em>No comments here so far</em>
             {% endfor %}

@@ -1,5 +1,7 @@
+
+
 body            { font-family: YuMincho, '游明朝', YuGothic, '游ゴシック', "Microsoft YaHei", 微软雅黑, serif, sans-serif;
-                    background: #FFBBFF; 
+                    background: #FFDDFF!important; 
                 }
 a, h1, h2       { color: #8A2BE2; }
 
@@ -7,16 +9,28 @@ h1, h2          { font-family: 'YuMincho',游明朝,"Microsoft YaHei",微软雅�
 /*
 h1              { border-bottom: 2px solid #eee; }
 */
+@media (min-width: 0px)
+.container {
+    width: 110px!important;
+}
 
-h2              { font-size: 1.2em; }
 
-.page           { margin: 2em auto; width: 50em; border: 5px solid #ccc; padding: 0.8em; background: white; }
+#welcome    { text-shadow: hotpink 1px -4px 4px, violet 4px 1px 4px, magenta -1px 4px 4px, indigo -4px -1px 4px; }
+.metanav h2              { color:darkviolet!important; }
+.metanav h2              { font-size: 3em!important; }
+.metanav h2 a            { color: #8A2BE2!important; }
+.metanav h3 a            { color: blue!important; }
+
 .entries        { list-style: none; margin: 0; padding: 0; }
 .entries li     { margin: 0.8em 1.2em; font-size:0.9em; }
 .entries li h2  { margin-left: -1em; }
 .add-entry      { font-size: 0.9em; border-bottom: 1px solid #ccc; }
 .add-entry dl   { font-weight: bold; }
-.metanav        { text-align: right; font-size: 1.2em; padding: 0.3em; margin-bottom: 1em; background: #fafafa; }
+
+.metanav        { text-align: right; font-size: 1.2em; padding: 0.3em; background: rgba(0,0,0,0); margin-top:auto; }
+#block11        { z-index: 50; left:0; background: rgba(0,0,0,0); height:300px!important; }
+#block12        { z-index: 50;  bottom:0; }
+#block13        { z-index: 40; position:absolute; right:0;}
 .flash          { background: #CEE5F5; padding: 0.5em; border: 1px solid #AACBE2; }
 .error          { background: #F0D6D6; padding: 0.5em; }
 
@@ -35,20 +49,16 @@ h2              { font-size: 1.2em; }
                 }
 
 
-.shine          { background: #FFFFFF;
-                    width: 440px;
+.shine          {
+                    /*width: 440px;*/
                     padding: 30px;
-                    /*text-transform: uppercase; */
                 }
 
 .shadow         { text-shadow: #FF0000 1px -4px 6px, #FF0000 1px 1px 1px, #FF5809 2px 2px 1px, #FFFF37 3px 3px 1px, #9AFF02 4px 4px 2px, #5A5AAD 5px 5px 2px, #6C3365 6px 6px 2px;
-                    opacity:0.5;
+                    opacity:0.8;
                     font-size: 55px!important;
                     font-weight: normal!important;
-                    /*
-                    font-family: "I-OTF-UDゴ表示Pro M","ヒラギノ角ゴ Pro W6", "HiraKakuPro-W6", sans-serif!important;
-                    */
-                    /* "微软雅黑", "Lucida Grande", "Lucida Sans", Helvetica, Arial, Sans;; */
+                    font-family: /*"I-OTF-UDゴ表示Pro M","ヒラギノ角ゴ Pro W6", "HiraKakuPro-W6",*/ 'YuMincho', "游明朝", "Microsoft YaHei", "微软雅黑", 'Georgia',  "Lucida Grande", "Lucida Sans", "Helvetica", "Arial", serif, sans-serif!important;
                 }
 
 .shine-small    { color: #76EE00;
@@ -59,4 +69,21 @@ h2              { font-size: 1.2em; }
                     font-family: 'Georgia', serif!important;
                 }
 
+#form_signup    { display:none;
+                }
+
+.play           { overflow: hidden; 
+                    width: 2000px;
+                    right: 0;
+                    position: absolute;
+                    opacity: 0.2;
+                    z-index: 20;
+                            margin-left: auto;
+                            margin-right: auto;
+                            text-align: center;
+                }
+#playhentai { visibility:hidden; opacity:1.0!important; }
+.inplay         { float: left; width: 3000%; }
+.header_flow        { float: left; }
+.header_flow img    { height: 300px; }
 

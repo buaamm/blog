@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block body %}
+    {% if error %}
+        <p class="error"><strong>Error:</strong>{{ error }}</p>
+    {% endif %}
+    <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+        <tr>
+        <th>Keys</th>
+        <th>Values</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>userid</td>
+            <td>{{ userinfo[0] }}</td>
+        </tr>
+        <tr>
+            <td>username</td>
+            <td>{{ userinfo[1] }}</td>
+        </tr>
+        <tr>
+            <td>register date</td>
+            <td>{{ userinfo[2] }}</td>
+        </tr>
+        <tr>
+            <td>birthday</td>
+            <td>{{ userinfo[3] }}</td>
+        </tr>
+        <tr>
+            <td>sex</td>
+            <td>{{ userinfo[4] }}</td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>{{ userinfo[5] }}</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+{% endblock %}
+

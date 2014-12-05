@@ -1,89 +1,81 @@
+/*************
+*            *
+* style.css  *
+*            *
+**************/
 
 
+/**************************************************************************/
 body            { font-family: YuMincho, '游明朝', YuGothic, '游ゴシック', "Microsoft YaHei", 微软雅黑, serif, sans-serif;
-                    background: #FFDDFF!important; 
+                    background: #FFDDFF!important;
                 }
 a, h1, h2       { color: #8A2BE2; }
-
 h1, h2          { font-family: 'YuMincho',游明朝,"Microsoft YaHei",微软雅黑,'consolas','Georgia', serif; margin: 0; }
-/*
-h1              { border-bottom: 2px solid #eee; }
-*/
-@media (min-width: 0px)
-.container {
-    width: 110px!important;
-}
 
+/**************************************************************************/
+.metanav        { text-align: right; font-size: 1.2em; padding: 0.3em; background: rgba(0,0,0,0); margin-top:auto; }
+.metanav h1     { font-weight:600!important; color:purple!important; }
+.metanav h2              { font-size: 3em!important; color:purple!important; }
+.metanav label           { text-shadow: purple 0px 0px 6px;}
 
-#welcome    { text-shadow: hotpink 1px -4px 4px, violet 4px 1px 4px, magenta -1px 4px 4px, indigo -4px -1px 4px; }
-.metanav h2              { color:darkviolet!important; }
-.metanav h2              { font-size: 3em!important; }
-.metanav h2 a            { color: #8A2BE2!important; }
-.metanav h3 a            { color: blue!important; }
+.bw_font  h1  { color:#FFF0FF; text-shadow: black 0.04em 0.04em 0, black 0.04em -0.04em 0, black -0.04em 0.04em 0, black -0.04em -0.04em 0, black 0.1em 0.1em 0;}
+.bw_font  h2, .bw_font h2 a  { color:#FFCCFF; text-shadow: black 0.02em 0.02em 0,black 0.02em -0.02em 0,black -0.02em 0.02em 0,black -0.02em -0.02em 0,black 0.08em 0.08em 0; }
+.bw_font  h3, .bw_font h3 a  { text-shadow: black 0.02em 0.02em 0, black 0.02em -0.02em 0, black -0.02em 0.02em 0, black -0.02em -0.02em 0, black 0.05em 0.05em 0!important; }
+.bw_font h3 {color: white; }
+.bw_font h3 a {color: #337ab7; }
 
+.shine      { padding: 30px; }
+.shadow     { text-shadow: #FF0000 1px -4px 6px, #FF0000 1px 1px 1px, #FF5809 2px 2px 1px, #FFFF37 3px 3px 1px, #9AFF02 4px 4px 2px, #5A5AAD 5px 5px 2px, #6C3365 6px 6px 2px;
+                font-size: 55px!important; font-weight: normal!important;
+                font-family: 'YuMincho', "游明朝", "Microsoft YaHei", "微软雅黑", 'Georgia',  "Lucida Grande", "Lucida Sans", "Helvetica", "Arial", serif, sans-serif!important;
+            }
+.shine-small    { color: #76EE00;
+                    text-shadow: #5A5AAD 1px -2px 6px;
+                    font-style: italic!important; font-size: 30px!important; font-weight: normal!important; font-family: 'Georgia', serif!important;
+                }
+
+#welcome    { text-shadow: hotpink 1px -3px 4px, violet 3px 1px 4px, magenta -1px 3px 4px, indigo -3px -1px 4px; }
+#form_signup    { display:none; }
+#block11        { z-index: 50; left:0; background: rgba(0,0,0,0); height:300px!important; }
+#block12        { z-index: 50;  bottom:0; }
+#block13        { z-index: 40; position:absolute; right:0;}
+
+/**************************************************************************/
+.button         { height: 80px;border: 2px solid #f36;background: #ccc;text-align: center;border-radius: 20px / 20px;  margin: 50px auto; }
+.btn-primary {margin-right:10px;}
+.btn-warning {right:0;}
+.flash          { background: #CEE5F5; padding: 0.5em; border: 1px solid #AACBE2; }
+.error          { background: rgba(0,0,0,0); padding: 0.5em; width:auto; font-size:1.2em; text-shadow:red 1px 1px 2px, red -1px -1px 2px; }
+
+/**************************************************************************/
 .entries        { list-style: none; margin: 0; padding: 0; }
 .entries li     { margin: 0.8em 1.2em; font-size:0.9em; }
 .entries li h2  { margin-left: -1em; }
 .add-entry      { font-size: 0.9em; border-bottom: 1px solid #ccc; }
 .add-entry dl   { font-weight: bold; }
 
-.metanav        { text-align: right; font-size: 1.2em; padding: 0.3em; background: rgba(0,0,0,0); margin-top:auto; }
-#block11        { z-index: 50; left:0; background: rgba(0,0,0,0); height:300px!important; }
-#block12        { z-index: 50;  bottom:0; }
-#block13        { z-index: 40; position:absolute; right:0;}
-.flash          { background: #CEE5F5; padding: 0.5em; border: 1px solid #AACBE2; }
-.error          { background: #F0D6D6; padding: 0.5em; }
-
-.video          { width:720px; height:600px; margin: 0 auto; }
-.contact        { width:720px;  margin: 0 auto; text-align:center; }
-
-.button         { width: 700px;
-                    height: 80px;
-                    font-color: #000000;
-                    font-size: 40px;
-                    border: 2px solid #f36;
-                    background: #ccc;
-                    text-align: center;
-                    border-radius: 20px / 20px; 
-                    margin: 50px auto;
-                }
-
-
-.shine          {
-                    /*width: 440px;*/
-                    padding: 30px;
-                }
-
-.shadow         { text-shadow: #FF0000 1px -4px 6px, #FF0000 1px 1px 1px, #FF5809 2px 2px 1px, #FFFF37 3px 3px 1px, #9AFF02 4px 4px 2px, #5A5AAD 5px 5px 2px, #6C3365 6px 6px 2px;
-                    opacity:0.8;
-                    font-size: 55px!important;
-                    font-weight: normal!important;
-                    font-family: /*"I-OTF-UDゴ表示Pro M","ヒラギノ角ゴ Pro W6", "HiraKakuPro-W6",*/ 'YuMincho', "游明朝", "Microsoft YaHei", "微软雅黑", 'Georgia',  "Lucida Grande", "Lucida Sans", "Helvetica", "Arial", serif, sans-serif!important;
-                }
-
-.shine-small    { color: #76EE00;
-                    text-shadow: #5A5AAD 1px -2px 6px;
-                    font-style: italic!important;
-                    font-size: 30px!important;
-                    font-weight: normal!important;
-                    font-family: 'Georgia', serif!important;
-                }
-
-#form_signup    { display:none;
-                }
-
-.play           { overflow: hidden; 
-                    width: 2000px;
-                    right: 0;
-                    position: absolute;
-                    opacity: 0.2;
-                    z-index: 20;
-                            margin-left: auto;
-                            margin-right: auto;
-                            text-align: center;
-                }
+/**************************************************************************/
+.play       { overflow: hidden; width: 2000px; right: 0; position: absolute; opacity: 0.2; z-index: 20; }
 #playhentai { visibility:hidden; opacity:1.0!important; }
 .inplay         { float: left; width: 3000%; }
 .header_flow        { float: left; }
 .header_flow img    { height: 300px; }
+
+/**************************************************************************/
+.page {}
+.mynav { position:fixed; width:120px; margin-top:-50px; text-align:right; z-index:200; display:none}
+.subnav { padding-top:0px; float:right; }
+.subnav li a { display:block; padding:4px 0 4px 4px; }
+
+/**************************************************************************/
+@media screen and (max-width: 500px)                        {.video embed,.video      { width:360px; height:300px; }}
+@media screen and (max-width: 620px) and (min-width: 501px) {.video embed,.video      { width:480px; height:400px; }}
+@media screen and (max-width: 740px) and (min-width: 621px) {.video embed,.video      { width:600px; height:500px; }}
+@media screen and (min-width: 741px)                        {.video embed,.video      { width:720px; height:600px; }}
+.video          { margin:0 auto; height:auto;}
+
+/**************************************************************************/
+.contact        { margin: 0 auto; text-align:center; }
+.backtotop      { position:fixed; width:120px; bottom:10px; margin-left:-150px; float:left; text-align:center; font-size:1.2em; text-shadow:red 1px 1px 2px, red -1px -1px 2px;}
+
 

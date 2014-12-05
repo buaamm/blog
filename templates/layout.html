@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>星夢の楽園</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="shortcut icon" type="img/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link rel="shortcut icon" type="img/x-icon" href="/static/favicon.ico">
 
     <!-- Bootstrap -->
-    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/static/jquery-2.1.1.min.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,117 +21,105 @@
     <![endif]-->
     {% endblock %}
 </head>
-<body>
-<div class="container" id="block1">
-    <div class="row" style="position:relative; height:300px">
+<body id="top">
+    <div class="container" id="block1">
+        <div class="row" style="position:relative; height:300px">
     
-    {% block welcome %}
-        <div class="col-md-5 col-sm-12 col-xs-12" id="block11">
-            <div class="shine">
-                <div class = "shadow">
-                <a href="{{ url_for('homepage') }}">星夢の<ruby> 楽園 <rt>パラダイス</rt> </ruby></a>
+        {% block welcome %}
+            <div class="col-md-5 col-sm-12 col-xs-12" id="block11">
+                <div class="shine">
+                    <div class = "shadow">
+                    <a href="{{ url_for('homepage') }}">星夢の<ruby> 楽園 <rt>パラダイス</rt> </ruby></a>
+                    </div>
+                    <div class="shine-small">welcome to my paradise</div>
                 </div>
-                <div class="shine-small">welcome to my paradise</div>
             </div>
-        </div>
 
-        <div class="col-md-5 col-sm-12 col-xs-12" id="block12">
-            <div class="metanav">
+            <div class="col-md-5 col-sm-12 col-xs-12" id="block12">
+                <div class="metanav">
                 {% if not session.logged_in %}
-                <div class="container-fluid" id="form_login">
-                    <h1>Login</h1>
-                    <form role="form" action="{{ url_for('login') }}" method="post">
-                        <div class="form-group"><div class="row">
-                            <label class="col-md-6 col-sm-6 col-xs-6 control-label">Username</label>
-                            <div class="col-md-6 col-sm-6 col-xs-6">
-                            <input type="text" class="form-control" placeholder="{{ session.username }}" name=username>
-                        </div></div></div>
-                        <div class="form-group"><div class="row">
-                            <label class="col-md-6 col-sm-6 col-xs-6 control-label" for="password_input">Password</label>
-                            <div class="col-md-6 col-sm-6 col-xs-6">
-                            <input type="password" class="form-control" id="password_input" placeholder="Enter Password" name="password" value="" autocomplete="off">
-                        </div></div></div>
-                        <button type="submit" role="button" class="btn btn-primary btn-lg">Login<img src="{{ url_for('static', filename='favicon.ico' ) }}"></button>
-                        <button type="button" role="button" class="btn btn-warning btn-lg" onclick="Change()">→ Sign Up<img src="{{ url_for('static', filename='fav2.ico') }}"></button>
-                    </form>
+                    <div class="container-fluid" id="form_login">
+                        <div class="bw_font"><h1>Login</h1></div>
+                        <form role="form" action="{{ url_for('login') }}" method="post">
+                            <div class="form-group"><div class="row">
+                                <label class="col-md-6 col-sm-6 col-xs-6 control-label">Username</label>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <input type="text" class="form-control" placeholder="{{ session.username }}" name=username>
+                                </div>
+                            </div></div>
+                            <div class="form-group"><div class="row">
+                                <label class="col-md-6 col-sm-6 col-xs-6 control-label" for="password_input">Password</label>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <input type="password" class="form-control" id="password_input" placeholder="Enter Password" name="password" value="" autocomplete="off">
+                                </div>
+                            </div></div>
+                            <button type="submit" role="button" class="btn btn-primary">Login<img src="/static/favicon.ico"></button>
+                            <button type="button" role="button" class="btn btn-warning" onclick="Change()">→ Sign Up<img src="/static/fav2.ico"></button>
+                        </form>
+                    </div>
+                    <div class="container-fluid" id="form_signup">
+                        <div class="bw_font"><h1 class="black_white_font">Sign Up</h1></div>
+                        <form role="form" action="{{ url_for('sign_up') }}" method="post">
+                            <div class="form-group"><div class="row">
+                                <label class="col-md-6 col-sm-6 col-xs-6 control-label">Username</label>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <input type="text" class="form-control" placeholder="A New Name" name=username>
+                                </div>
+                            </div></div>
+                            <div class="form-group"><div class="row">
+                                <label class="col-md-6 col-sm-6 col-xs-6 control-label" for="password_input">Password</label>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <input type="password" class="form-control" id="password_input" placeholder="Enter Password" name="password" value="" autocomplete="off">
+                                </div>
+                            </div></div>
+                            <button type="submit" role="button" class="btn btn-primary">Sign Up<img src="/static/fav2.ico"></button>
+                            <button type="button" role="button" class="btn btn-warning" onclick="Change()">→ Login<img src="/static/favicon.ico"></button>
+                        </form>
+                    </div>
+                    {% if login_error %} <p class="error"><strong>Error:</strong>{{ login_error }}</p> {% endif %}
+                    {% if signup_error %} <p class="error"><strong>Error:</strong>{{ signup_error }}</p> {% endif %}
+                {% else %}
+                    <div class="welcome-back"><h2 id="welcome">お帰りなさいませ</h2></div>
+                    <div class="bw_font">
+                        <h2><a href="{{ url_for('user', username=session.username) }}">{{ session.username }}</a> 様</h2>
+                        <h3><a href="{{ url_for('profile') }}">Edit Profile</a> | <a href="{{ url_for('logout') }}">Log Out</a></h3>
+                    </div>
+                {% endif %}
                 </div>
-                <div class="container-fluid" id="form_signup">
-                    <h1>Sign Up</h1>
-                    <form role="form" action="{{ url_for('sign_up') }}" method="post">
-                        <div class="form-group"><div class="row">
-                            <label class="col-md-6 col-sm-6 col-xs-6 control-label">Username</label>
-                            <div class="col-md-6 col-sm-6 col-xs-6">
-                            <input type="text" class="form-control" placeholder="A New Name" name=username>
-                        </div></div></div>
-                        <div class="form-group"><div class="row">
-                            <label class="col-md-6 col-sm-6 col-xs-6 control-label" for="password_input">Password</label>
-                            <div class="col-md-6 col-sm-6 col-xs-6">
-                            <input type="password" class="form-control" id="password_input" placeholder="Enter Password" name="password" value="" autocomplete="off">
-                        </div></div></div>
-                        <button type="submit" role="button" class="btn btn-primary btn-lg">Sign Up<img src="{{ url_for('static', filename='fav2.ico' ) }}"></button>
-                        <button type="button" role="button" class="btn btn-warning btn-lg" onclick="Change()">→ Login<img src="{{ url_for('static', filename='favicon.ico') }}"></button>
-                    </form>
-                </div>
-            {% else %}
-                <h2 id="welcome">お帰りなさいませ</h2>
-                <h2><a href="{{ url_for('user', username=session.username) }}">{{ session.username }}</a> 様</h2>
-                <h3><a href="{{ url_for('profile') }}">Edit Profile</a> | <a href="{{ url_for('logout') }}">Log Out</a></h3>
-            {% endif %}
             </div>
-        </div>
 
-        <div class="col-md-2 col-sm-5 col-xs-5" id="block13"><img src="{{ url_for('static', filename='milk.png') }}"  style="height:300px">
-        </div>
+            <div class="col-md-2 col-sm-5 col-xs-5" id="block13"><img src="/static/milk.png"  style="height:300px"></div>
         
-        <div class="play" id="play"> 
-        <div class="inplay" id="inplay"> 
-            <div class="header_flow" id="play1">
-            <img src="/static/header/A1.png">
-            <img src="/static/header/A2.png">
-            <img src="/static/header/A3.png">
-            <img src="/static/header/A4.png">
-            <img src="/static/header/A5.png">
-            <img src="/static/header/A6.png">
-            <img src="/static/header/A7.png">
-            <img src="/static/header/A8.png">
-            <img src="/static/header/A9.png">
-            <img src="/static/header/A10.png">
-            <img src="/static/header/A11.png">
-            <img src="/static/header/A12.png">
-            <img src="/static/header/A13.png">
-            <img src="/static/header/A14.png">
+            <div class="play" id="play"> 
+                <div class="inplay" id="inplay"> 
+                    <div class="header_flow" id="play1">
+                        <img src="/static/header/A1.png"><img src="/static/header/A2.png"><img src="/static/header/A3.png">
+                        <img src="/static/header/A4.png"><img src="/static/header/A5.png"><img src="/static/header/A6.png">
+                        <img src="/static/header/A7.png"><img src="/static/header/A8.png"><img src="/static/header/A9.png">
+                        <img src="/static/header/A10.png"><img src="/static/header/A11.png"><img src="/static/header/A12.png">
+                        <img src="/static/header/A13.png"><img src="/static/header/A14.png">
+                    </div>
+                    <div class="header_flow" id="play2"></div>
+                </div>
             </div>
-            <div class="header_flow" id="play2">
+            {% if session.username == "root" %}
+            <div class="play" id="playhentai"> 
+                <div class="inplay" id="inplayhentai"> 
+                    <div class="header_flow" id="play1hentai">
+                        <img src="/static/header/B1.png"><img src="/static/header/B2.png"><img src="/static/header/B3.png">
+                        <img src="/static/header/B4.png"><img src="/static/header/B5.png"><img src="/static/header/B6.png">
+                        <img src="/static/header/B7.png"><img src="/static/header/B8.png"><img src="/static/header/B9.png">
+                        <img src="/static/header/B10.png"><img src="/static/header/B11.png"><img src="/static/header/B12.png">
+                        <img src="/static/header/B13.png"><img src="/static/header/B14.png">
+                    </div>
+                    <div class="header_flow" id="play2hentai"></div>
+                </div>
             </div>
+            {% endif %}
+        {# endblock welcome #}
+        {% endblock %}
         </div>
-        </div>
-        {% if session.username == "root" %}
-        <div class="play" id="playhentai"> 
-        <div class="inplay" id="inplayhentai"> 
-            <div class="header_flow" id="play1hentai">
-            <img src="/static/header/B1.png">
-            <img src="/static/header/B2.png">
-            <img src="/static/header/B3.png">
-            <img src="/static/header/B4.png">
-            <img src="/static/header/B5.png">
-            <img src="/static/header/B6.png">
-            <img src="/static/header/B7.png">
-            <img src="/static/header/B8.png">
-            <img src="/static/header/B9.png">
-            <img src="/static/header/B10.png">
-            <img src="/static/header/B11.png">
-            <img src="/static/header/B12.png">
-            <img src="/static/header/B13.png">
-            <img src="/static/header/B14.png">
-            </div>
-            <div class="header_flow" id="play2hentai">
-            </div>
-        </div>
-        </div>
-        {% endif %}
-    {% endblock %}
     </div>
-</div>
 <script type="text/javascript">
     function $(id) { return document.getElementById(id); }
     var freqslow=10;
@@ -167,54 +156,99 @@
         else{ flag_init=1;  login.style.display="block"; signup.style.display="none"; }
     }
 </script>
+    
+    <div class="page">
+        <div class="mynav">
+            <h1>Index</h1>
+            <div class="subnav">
+                <ul class="subnav_menu">
+                    <li id="menu_item_1"><a href="#">test page</a></li>
+                    <li id="menu_item_1"><a href="#">test page</a></li>
+                    <li id="menu_item_1"><a href="#">test page</a></li>
+                    <li id="menu_item_1"><a href="#">test page</a></li>
+                    <li id="menu_item_1"><a href="#">test page</a></li>
+                </ul>    
+            </div>
+        </div>
 
-<div class="container">
-    {% block flash %}
-            {% with massages = get_flashed_messages() %}
-            {% if messages %}
-                <div class="flash"><ul>
-                {% for massage in messages %}
-                <li{{ message }}</li>
+        <div class="container">
+            {% block flash %}
+            <div class="row">
+                {% with massages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="flash"><ul>
+                    {% for massage in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                    </ul></div>
+                {% endif %}
+                {% endwith %}
+            </div>
+            {% endblock %}
+        
+            {% block body %}
+            {% endblock %}
+        
+            {% block entries %}
+            <div class="row">
+                <h1>Comments</h1>
+                <ul class="entries">
+                {% for entry in entries %}
+                    <li><h2>{{ entry[2] }} (by <a href="{{ url_for('user', username=entry[5]) }}">@{{ entry[5] }}</a> )<small>{{ entry[3] }}</small></h2>{{ entry.text|safe }}
+                {% else %}
+                    <li><em>No comments here so far</em>
                 {% endfor %}
-                </ul></div>
-            {% endif %}
-            {% endwith %}
-    {% endblock %}
-    
-    {% block body %}
-    {% endblock %}
-    
-        {% block entries %}
-            <h1>Comments</h1>
-            <ul class="entries">
-            {% for entry in entries %}
-                <li><h2>{{ entry[2] }} (by <a href="{{ url_for('user', username=entry[5]) }}">@{{ entry[5] }}</a> )<small>{{ entry[3] }}</small></h2>{{ entry.text|safe }}
-            {% else %}
-                <li><em>No comments here so far</em>
-            {% endfor %}
-            </ul>
-        {% endblock %}
-        {% block comment %}
-            {% if session.logged_in %}
-            <h1>Leave a message</h1>
-            <form action="{{ url_for('add_entry') }}" method="post" class="add-entry">
-            <dl>
-                <dt>Title:
-                <dd><input type="text" size="30" name="title">
-                <dt>Text:
-                <dd><textarea rows="5" cols="40" name="text"></textarea>
-                <dd><input type="submit" value="Submit ^_^">
-            </dl>
-            </form>
-            {% else %}
-            <h1>Please LOGIN to leave a comment.</h1>
-            {% endif %}
-        {% endblock %}
+                </ul>
+            </div>
+            {% endblock %}
+            
+            {% block comment %}
+            <div class="row">
+                {% if session.logged_in %}
+                <h1>Leave a message</h1>
+                <form action="{{ url_for('add_entry') }}" method="post" class="add-entry">
+                <dl>
+                    <dt>Title:
+                    <dd><input type="text" size="30" name="title">
+                    <dt>Text:
+                    <dd><textarea rows="5" cols="40" name="text"></textarea>
+                    <dd><input type="submit" value="Submit ^_^">
+                </dl>
+                </form>
+                {% else %}
+                <h1>Please LOGIN to leave a comment.</h1>
+                {% endif %}
+            </div>
+            {% endblock %}
+        </div>
 
         {% block ending %}
-        <div class="contact">
-            <p>All Rights Reserved 2014-2024 Yishuai Ni <br> Any problem, Please <a href="mailto:buaamm@gmail.com">Contact Administrator</a>.</p>
+        <div id="footer">
+            <div class="contact">
+                <p>Copyright© http://www.niyishuai.tk</p>
+                <p>All Rights Reserved 2014-2024 Yishuai Ni <br> Any problem, Please <a href="mailto:buaamm@gmail.com">Contact Administrator</a>.</p>
+            </div>
+            <a href="#top" class="backtotop" style="display:none">↑ Go to Top ↑<br><span><img src="/static/x6.png" width="100%"></span></a>
+            </div>
         </div>
+        <script>
+            jQuery(document).ready(function() {
+                var offset = 220;
+                var duration = 500;
+                jQuery(window).scroll(function() {
+                    if (jQuery(this).scrollTop() > offset) {
+                        jQuery('.backtotop').fadeIn(duration);
+                    } else {
+                        jQuery('.backtotop').fadeOut(duration);
+                    }
+                });
+                jQuery('.backtotop').click(function(event) {
+                    event.preventDefault();
+                    jQuery('html, body').animate({scrollTop: 0}, duration);
+                    return false;
+                })
+            });
+        </script>
         {% endblock %}
     </div>
 </body>

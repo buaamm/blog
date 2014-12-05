@@ -103,13 +103,13 @@ def sign_up():
         username = request.form['username']
         password = request.form['password']
         if myhash.check_text(username, password) is False:
-            error = "Invalid Input, please try again."
-            return render_template('sign_up.html', error=error)
+            error = "Invalid Input."
+            return render_template('homepage.html', signup_error=error) #return render_template('sign_up.html', error=error)
         g.db = connect_db()
         cur = g.db.execute('select username from users where username="%s"' % username)
         if len(cur.fetchall()) != 0:
-            error = "Username already exist, please try again."
-            return render_template('sign_up.html', error=error)
+            error = "Username already exist."
+            return render_template('homepage.html', signup_error=error) #return render_template('sign_up.html', error=error)
         password = myhash.calc_sha1(password)
         db = get_db()
         db.execute('insert into users (username, password, create_time, birthday, sex, description) values (?, ?, ?, "", -1, "")',
@@ -121,7 +121,7 @@ def sign_up():
         session['userid'] = get_userid(username)
         flash('You are logged in, %s' % username)
         return redirect(url_for('homepage'))
-    return render_template('sign_up.html', error=error)
+    return render_template('homepage.html', signup_error=error) #return render_template('sign_up.html', error=error)
 
 def login_check(username, password): #---------- login [check]----------
     if session.get('logged_in'):
@@ -153,7 +153,7 @@ def login():
             session['username'] = request.form['username']
             flash('You are logged in!')
             return redirect(url_for('homepage'))
-    return render_template('login.html', error=error)
+    return render_template('homepage.html', login_error=error) 
 
 @app.route('/logout') #---------- logout ----------
 def logout():
@@ -225,11 +225,7 @@ def upload():
     # ID, UID, filename, up_time, text
     file_dict = []
     for index in xrange(len(all)):
-        aid   = all[index][0]
-        auid  = all[index][1]
-        afile = all[index][2]
-        atime = all[index][3]
-        atext = all[index][4]
+        aid, auid, afile, atime, atext = ((list)(all[index]))[0:5]
         apath = os.path.join(app.config['UPLOAD_FOLDER'], afile)
         asize = os.path.getsize(apath)
         amd5  = myhash.get_md5(apath)

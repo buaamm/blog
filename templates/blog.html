@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block body %}
+    <h1>{{ type }} {{ id }}</h1>
+    {% if type=="y" %}
+    <h1>Video from Youku</h1>
+    <div class="video" id="youku_video">
+        <embed class="videoin" src="http://player.youku.com/player.php/sid/{{id}}/v.swf" allowFullScreen="true" quality="high" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+    </div>
+    {% endif %}
+
+    {% if type=="b" %}
+    <h1>Video from Bilibili</h1>
+    <div class="video" id="bilibili_video">
+        <embed class="videoin" src="http://static.hdslb.com/miniloader.swf?aid={{id}}&amp;page=1" allowFullScreen="true" quality="high" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+    </div>
+    {% endif %}
+
+<script>
+window.onload=function(){
+    document.getElementById("navbar_sm").getElementsByTagName("li")[6].className="active";
+    document.getElementById("navbar_lg").getElementsByTagName("li")[6].className="active";
+}
+</script>
+{% endblock %}
+
+
+

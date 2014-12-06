@@ -192,14 +192,6 @@ def user(username):
     return render_template('user.html', userinfo=userinfo, error=error)
     
 
-@app.route('/video')
-def show_video():
-    return render_template('show_video.html')
-
-@app.route('/music')
-def set_music():
-    return render_template('set_music.html')
-
 @app.route('/upload', methods=['GET', 'POST']) #---------- upload ----------
 def upload():
     if request.method == 'POST':
@@ -237,6 +229,48 @@ def upload():
 # send_from_directory(): Show a [file] in server
 def uploaded(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
+@app.route('/anime')
+@app.route('/anime/<id>')
+def anime(id=None):
+    if id is None: return render_template('anime.html', type="home")
+    return render_template('anime.html', type=id[0], id=id[1:])
+
+@app.route('/comic')
+@app.route('/comic/<id>')
+def comic(id=None):
+    if id is None: return render_template('comic.html', type="home")
+    return render_template('comic.html', type=id[0], id=id[1:])
+
+@app.route('/game')
+@app.route('/game/<id>')
+def game(id=None):
+    if id is None: return render_template('game.html', type="home")
+    return render_template('game.html', type=id[0], id=id[1:])
+
+@app.route('/novel')
+@app.route('/novel/<id>')
+def novel(id=None):
+    if id is None: return render_template('novel.html', type="home")
+    return render_template('novel.html', type=id[0], id=id[1:])
+
+@app.route('/music')
+@app.route('/music/<id>')
+def music(id=None):
+    if id is None: return render_template('music.html', type="home")
+    return render_template('music.html', type=id[0], id=id[1:])
+
+@app.route('/blog')
+@app.route('/blog/<id>')
+def blog(id=None):
+    if id is None: return render_template('blog.html', type="home")
+    return render_template('blog.html', type=id[0], id=id[1:])
+
+@app.route('/video')
+@app.route('/video/<id>')
+def video(id=None):
+    if id is None: return render_template('video.html', type="home")
+    return render_template('video.html', type=id[0], id=id[1:])
 
 ######################################
 

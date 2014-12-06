@@ -1,13 +1,10 @@
 {% extends "layout.html" %}
 {% block body %}
-    <div class="button">
-        <a href="{{ url_for('show_video') }}">Watch a video</a>
-    </div>
-    <div class="button">
-        <a href="{{ url_for('upload') }}">Upload a File</a>
-    </div>
-    <div class="button">
-        <a href="{{ url_for('set_music') }}">Set a BGM (Not Available)</a>
-    </div>
+<script>
+window.onload=function(){
+    document.getElementById("navbar_sm").getElementsByTagName("li")[0].className="active";
+    document.getElementById("navbar_lg").getElementsByTagName("li")[0].className="active";
+}
+</script>
 {% endblock %}
 

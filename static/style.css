@@ -6,25 +6,23 @@
 
 
 /**************************************************************************/
-body            { font-family: YuMincho, '游明朝', YuGothic, '游ゴシック', "Microsoft YaHei", 微软雅黑, serif, sans-serif;
-                    background: #FFDDFF!important;
-                }
-a, h1, h2       { color: #8A2BE2; }
-h1, h2          { font-family: 'YuMincho',游明朝,"Microsoft YaHei",微软雅黑,'consolas','Georgia', serif; margin: 0; }
+body {font-family:YuMincho,'游明朝',YuGothic,'游ゴシック',"Microsoft YaHei", 微软雅黑, serif, sans-serif; width:100%;background: #FFDDFF!important;}
+.navbar {display:none;}
 
 /**************************************************************************/
-.metanav        { text-align: right; font-size: 1.2em; padding: 0.3em; background: rgba(0,0,0,0); margin-top:auto; }
-.metanav h1     { font-weight:600!important; color:purple!important; }
-.metanav h2              { font-size: 3em!important; color:purple!important; }
-.metanav label           { text-shadow: purple 0px 0px 6px;}
+.login-block        { text-align: right; font-size: 1.2em; padding: 0.3em; background: rgba(0,0,0,0); margin-top:auto; height:100%; width:100%; }
+.login-block h1     { font-weight:600!important; color:purple!important; }
+.login-block h2              { font-size: 3em!important; color:purple!important; }
+.login-block label           { text-shadow: purple 0px 0px 6px;}
 
 .bw_font  h1  { color:#FFF0FF; text-shadow: black 0.04em 0.04em 0, black 0.04em -0.04em 0, black -0.04em 0.04em 0, black -0.04em -0.04em 0, black 0.1em 0.1em 0;}
 .bw_font  h2, .bw_font h2 a  { color:#FFCCFF; text-shadow: black 0.02em 0.02em 0,black 0.02em -0.02em 0,black -0.02em 0.02em 0,black -0.02em -0.02em 0,black 0.08em 0.08em 0; }
-.bw_font  h3, .bw_font h3 a  { text-shadow: black 0.02em 0.02em 0, black 0.02em -0.02em 0, black -0.02em 0.02em 0, black -0.02em -0.02em 0, black 0.05em 0.05em 0!important; }
+.bw_font  h3, .bw_font h3 a, .bw_font ul li a  { text-shadow: black 0.02em 0.02em 0, black 0.02em -0.02em 0, black -0.02em 0.02em 0, black -0.02em -0.02em 0, black 0.05em 0.05em 0!important; }
 .bw_font h3 {color: white; }
 .bw_font h3 a {color: #337ab7; }
+#navbar_lg .active a  { color:#DD0000!important; text-shadow: red -0.1em 0 0.05em, black 0.02em 0.02em 0, black 0.02em -0.02em 0, black -0.02em 0.02em 0, black -0.02em -0.02em 0, black 0.05em 0.05em 0!important; }
 
-.shine      { padding: 30px; }
+.shine      { padding: 10px; margin-top:10px;}
 .shadow     { text-shadow: #FF0000 1px -4px 6px, #FF0000 1px 1px 1px, #FF5809 2px 2px 1px, #FFFF37 3px 3px 1px, #9AFF02 4px 4px 2px, #5A5AAD 5px 5px 2px, #6C3365 6px 6px 2px;
                 font-size: 55px!important; font-weight: normal!important;
                 font-family: 'YuMincho', "游明朝", "Microsoft YaHei", "微软雅黑", 'Georgia',  "Lucida Grande", "Lucida Sans", "Helvetica", "Arial", serif, sans-serif!important;
@@ -35,47 +33,86 @@ h1, h2          { font-family: 'YuMincho',游明朝,"Microsoft YaHei",微软雅�
                 }
 
 #welcome    { text-shadow: hotpink 1px -3px 4px, violet 3px 1px 4px, magenta -1px 3px 4px, indigo -3px -1px 4px; }
-#form_signup    { display:none; }
+#form_signup    { position:absolute; display:none; bottom:50px; right:0; }
+#form_login    { position:absolute; bottom:50px; right:0px; }
 #block11        { z-index: 50; left:0; background: rgba(0,0,0,0); height:300px!important; }
-#block12        { z-index: 50;  bottom:0; }
+#block12        { z-index: 50;  bottom:0; height:300px; right:30px; }
 #block13        { z-index: 40; position:absolute; right:0;}
 
 /**************************************************************************/
-.button         { height: 80px;border: 2px solid #f36;background: #ccc;text-align: center;border-radius: 20px / 20px;  margin: 50px auto; }
 .btn-primary {margin-right:10px;}
 .btn-warning {right:0;}
 .flash          { background: #CEE5F5; padding: 0.5em; border: 1px solid #AACBE2; }
-.error          { background: rgba(0,0,0,0); padding: 0.5em; width:auto; font-size:1.2em; text-shadow:red 1px 1px 2px, red -1px -1px 2px; }
+.login_error          { background: rgba(0,0,0,0); position:absolute; margin:0 auto; bottom:0;  right:0; padding: 0.5em; width:auto; font-size:1.2em; text-shadow:red 1px 1px 2px, red -1px -1px 2px; }
 
 /**************************************************************************/
 .entries        { list-style: none; margin: 0; padding: 0; }
 .entries li     { margin: 0.8em 1.2em; font-size:0.9em; }
-.entries li h2  { margin-left: -1em; }
+.entries li h2  { margin-left: 1em; }
 .add-entry      { font-size: 0.9em; border-bottom: 1px solid #ccc; }
 .add-entry dl   { font-weight: bold; }
 
 /**************************************************************************/
-.play       { overflow: hidden; width: 2000px; right: 0; position: absolute; opacity: 0.2; z-index: 20; }
-#playhentai { visibility:hidden; opacity:1.0!important; }
+.imgplay       { overflow: hidden; width: 2000px; right: 0; position: absolute; opacity: 0.2; z-index: 20; }
+#imgplayhentai { visibility:hidden; opacity:1.0!important; }
 .inplay         { float: left; width: 3000%; }
 .header_flow        { float: left; }
 .header_flow img    { height: 300px; }
 
 /**************************************************************************/
-.page {}
-.mynav { position:fixed; width:120px; margin-top:-50px; text-align:right; z-index:200; display:none}
+.page { width: 1080px; position:relative; left:50%; margin-left:-540px; border-left:thick double red; } 
+.inpage { width: 1050px; height:100px; margin-left:10px; border-left:thick double red;  }
+.mynav { position:fixed; width:120px; margin-left:0px; padding:5px 5px 5px 5px; text-align:right; z-index:0; border: 1px solid blue;}
 .subnav { padding-top:0px; float:right; }
-.subnav li a { display:block; padding:4px 0 4px 4px; }
+.subnav li a { display:block; padding:4px 0 4px 4px; font-size:1.5em;}
+.subnav li { border-bottom: 1px solid blue; }
+.subnav ul { list-style:none;margin:0px; }
+#block21 { width: 120px; margin-left:-20px;}
+#block22 { width: 730px; padding:0px 5px 0 5px; float:left; margin-left:100px; border:1px solid black; border-left:3px solid black; }
+#block23 { width: 180px; padding:5px 5px 5px 5px; float:left; border:1px solid green; }
+#block24 { width: 180px; height:100px; padding:5px 5px 5px 5px; float:left; border:1px solid green; }
+#block25 { width: 180px; height:100px; padding:5px 5px 5px 5px; float:left; border:1px solid green; }
 
-/**************************************************************************/
-@media screen and (max-width: 500px)                        {.video embed,.video      { width:360px; height:300px; }}
-@media screen and (max-width: 620px) and (min-width: 501px) {.video embed,.video      { width:480px; height:400px; }}
-@media screen and (max-width: 740px) and (min-width: 621px) {.video embed,.video      { width:600px; height:500px; }}
-@media screen and (min-width: 741px)                        {.video embed,.video      { width:720px; height:600px; }}
-.video          { margin:0 auto; height:auto;}
-
-/**************************************************************************/
 .contact        { margin: 0 auto; text-align:center; }
-.backtotop      { position:fixed; width:120px; bottom:10px; margin-left:-150px; float:left; text-align:center; font-size:1.2em; text-shadow:red 1px 1px 2px, red -1px -1px 2px;}
 
+
+/**************************************************************************/
+.audiojs { position:fixed; bottom:0; opacity:0.5; }
+.footer { width:100%; }
+.video          { margin:0 auto; height:auto; }
+.video embed { width:720px; height:600px; }
+.backtotop      { position:fixed; width:120px; bottom:36px; right:0; text-align:center; font-size:1.2em; text-shadow:red 1px 1px 2px, red -1px -1px 2px; display:none;}
+
+@media screen and (max-width:1000px){
+    .page { width:100%; left:0; margin: 0 auto;}
+    .inpage { width:100%; left:0; margin: 0 auto; }
+    #block21 { width:13%; margin-left:0;}
+    #block22 { width:70%; margin-left:13%; }
+    #block23 { width:17%; }
+    .video embed, .video { width:600px; height:500px; }
+}
+@media screen and (max-width:930px) {
+    #block21 { display:none;}
+    #block22 { width:70%; margin-left: 0; }
+    #block23 { width:30%; }
+    .navbar { display:block; }
+    .backtotop {margin-bottom:86px;}
+    .audiojs  {bottom:50px;}
+    body { padding-bottom:60px; }
+    .video embed, .video { width:480px; height:400px; }
+}
+@media screen and (max-width:750px) {
+    .video embed, .video { width:360px; height:300px; }
+}
+@media screen and (max-width:700px){
+    #block22 { width:100%; }
+    #block23 { display: none; }
+}
+
+/**************************************************************************
+@media screen and (max-width: 500px)                        {.video embed,.video      { width:360px; height:300px; }}
+@media screen and (max-width: 750px) and (min-width: 501px) {.video embed,.video      { width:360px; height:300px; }}
+@media screen and (max-width: 930px) and (min-width: 751px) {.video embed,.video      { width:480px; height:400px; }}
+@media screen and (max-width: 1000px) and (min-width: 931px) {.video embed,.video      { width:600px; height:500px; }}
+**************************************************************************/
 

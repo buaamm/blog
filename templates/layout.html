@@ -70,7 +70,7 @@
                             <div class="form-group"><div class="row">
                                 <label class="col-md-6 col-sm-6 col-xs-6 control-label">Username</label>
                                 <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <input type="text" class="form-control" placeholder="{{ session.username }}" name=username>
+                                    <input type="text" class="form-control" placeholder="{{ session.username }}" name="username">
                                 </div>
                             </div></div>
                             <div class="form-group"><div class="row">
@@ -89,7 +89,7 @@
                             <div class="form-group"><div class="row">
                                 <label class="col-md-6 col-sm-6 col-xs-6 control-label">Username</label>
                                 <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <input type="text" class="form-control" placeholder="A New Name" name=username>
+                                    <input type="text" class="form-control" placeholder="A New Name" name="username">
                                 </div>
                             </div></div>
                             <div class="form-group"><div class="row">
@@ -202,6 +202,7 @@
             {% endblock %}
         
             {% block body %}
+            {% if error %} <p class="login_error"><strong>Error:</strong>{{ error }}</p> {% endif %}
             {% endblock %}
         
             {% block entries %}
@@ -220,16 +221,7 @@
             {% block comment %}
             <div class="div-comment">
                 {% if session.logged_in %}
-                <h1>Leave a message</h1>
-                <form action="{{ url_for('add_entry') }}" method="post" class="add-entry">
-                <dl>
-                    <dt>Title:
-                    <dd><input type="text" size="30" name="title">
-                    <dt>Text:
-                    <dd><textarea rows="5" cols="40" name="text"></textarea>
-                    <dd><input type="submit" value="Submit ^_^">
-                </dl>
-                </form>
+                <h2>Message Function Disabled.</h2>
                 {% else %}
                 <h2>Please LOGIN to leave a comment.</h2>
                 {% endif %}
@@ -241,15 +233,41 @@
                 <p>All Rights Reserved 2014-2024 Yishuai Ni <br> Any problem, Please <a href="mailto:buaamm@gmail.com">Contact Administrator</a>.</p>
             </div>
         </div>
+        
         <div class="container" id="block23">
-        <h2>Music List <em> (X) </em></h2>
-        <audio preload></audio>
-            <ol>
-                <li><a href="#" data-src="/static/test.mp3">test.mp3</a></li>
-                <li><a href="#" data-src="/static/bad_end_night.mp3">bad_end_night.mp3</a></li>
-            </ol>
+            {% block post %}
+            <div class="div-post post_font">
+                {% if session.logged_in %}
+                <button type="button" class="btn btn-lg btn-block btn-danger"><a href="{{ url_for('add_entry') }}">Post new entry</a></button>
+                {% else %}
+                <h2>Please LOGIN to POST.</h2>
+                {% endif %}
+            </div>
+            {% endblock %}
         </div>
         <div class="container" id="block24">
+        <h2>Music List <em> (X) </em></h2>
+        <audio preload></audio>
+            <ol style="padding:0">
+                <li><a href="#" data-src="/static/examples/mp3/初音ミク-てってってー .mp3">(初音ミク)てってってー</a></li>
+                <li><a href="#" data-src="/static/examples/mp3/11. ムーンライト伝説 (仏語Ver.).mp3">ムーンライト伝説 (仏語Ver.)</a></li>
+                <li><a href="#" data-src="/static/examples/mp3/01 - こんな世界、知りたくなかった。.mp3">こんな世界、知りたくなかった。</a></li>
+                <li><a href="#" data-src="/static/examples/mp3/01.Your song＊.mp3">Your song＊</a></li>
+                <li><a href="#" data-src="/static/examples/mp3/FirstKiss.mp3">FirstKiss</a></li>
+                <li><a href="#" data-src="/static/examples/mp3/[天才麻将少女] ~サキガツモル~.mp3">[天才麻将少女] ~サキガツモル~</a></li>
+                <li><a href="#" data-src="/static/examples/mp3/chikuwa.mp3">chikuwa</a></li>
+                <li><a href="#" data-src="/static/examples/mp3/os-uchuujin.mp3">os-uchuujin</a></li>
+                <li><a href="#" data-src="/static/examples/mp3/北出菜奈 - 月华-tsukihana-.mp3">(北出菜奈)月華</a></li>
+                <li><a href="#" data-src="/static/examples/mp3/丰崎爱生 - あなたのシアワセ うちのシアワセ.mp3">(豊崎愛生)あなたのシアワセ うちのシアワセ</a></li>
+                <li><a href="#" data-src="/static/examples/mp3/南条爱乃 - 君が笑む夕暮れ.mp3">(南條愛乃)君が笑む夕暮れ</a></li>
+                <li><a href="#" data-src="/static/examples/mp3/高垣彩阳 - アブラムシの唄.mp3">(高垣彩陽)アブラムシの唄</a></li>
+                <li><a href="#" data-src="/static/examples/mp3/能登麻美子 - いちぬけ.mp3">(能登麻美子)いちぬけ</a></li>
+                <li><a href="#" data-src="/static/examples/mp3/爆乳工口组 - 爆乳音头【工口人人爱】.mp3">爆乳音頭</a></li>
+                <li><a href="#" data-src="/static/examples/mp3/パチュリーズ·ベストヒットGSK [东方电波少女].mp3">パチュリーズ·ペストヒットGSK</a></li>
+                <li><a href="#" data-src="/static/examples/mp3/みくみくにしてあげる♪.mp3">みくみくにしてあげる♪</a></li>
+                <li><a href="#" data-src="/static/examples/mp3/お賽銭♥ちょうだい　－いまさら修正版－.mp3">お賽銭♥ちょうだい</a></li>
+                <li><a href="#" data-src="/static/bad_end_night.mp3">Bad∞End∞Night</a></li>
+            </ol>
         </div>
         <div class="container" id="block25">
         </div>
@@ -287,12 +305,6 @@
                             </ul>
                         </li>
                     </ul>
-                    <!-- form action="" class="navbar-form navbar-left" role="search">
-                        <div class="form-group">
-                        <input type="text" class="form-control" />
-                        </div>
-                        <button type="button" class="btn btn-default">Submit</button>
-                    </form> -->
                 </div>
             </nav>
 <script>

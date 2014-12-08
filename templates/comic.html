@@ -1,19 +1,18 @@
 {% extends "layout.html" %}
 {% block body %}
-    <h1>{{ type }} {{ id }}</h1>
-    {% if type=="y" %}
-    <h1>Video from Youku</h1>
-    <div class="video" id="youku_video">
-        <embed class="videoin" src="http://player.youku.com/player.php/sid/{{id}}/v.swf" allowFullScreen="true" quality="high" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+{{ super() }}
+    <h1>{{ name }}<small>type={{ type }}, chapters={{ chapters }}, upload={{ upload }}, uid={{ uid }},  </small></h1>
+    <h2>info={{ info }}</h2>
+    <div class="comic" id="read_comic">
+        <img src="{{ path + cover }}" style="width:100%;border-bottom:5px solid black;border-top:5px solid white">
+        {% for file in filelist %}
+            <img src="{{ path + file }}" style="width:100%;border-bottom:5px solid black;border-top:5px solid white">
+        {% endfor %}
     </div>
-    {% endif %}
-
-    {% if type=="b" %}
-    <h1>Video from Bilibili</h1>
-    <div class="video" id="bilibili_video">
-        <embed class="videoin" src="http://static.hdslb.com/miniloader.swf?aid={{id}}&amp;page=1" allowFullScreen="true" quality="high" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+    <div class="comic-entry">
+        <h2>{{ title }}</h2>
+        <h2>{{ text }}</h2>
     </div>
-    {% endif %}
 
 <script>
 window.onload=function(){

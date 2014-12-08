@@ -14,19 +14,25 @@
         <div class="form-group"><div class="row">
         <label class="col-md-2 control-label" for="password_input">Password</label>
         <div class="col-md-6">
-        <input type="password" class="form-control" id="password_input" placeholder="Enter Password" name="password" value="" autocomplete="off">
+        <input type="password" class="form-control" id="password_input" placeholder="Enter Password on Change" name="password" value="" autocomplete="off">
+        </div></div></div>
+
+        <div class="form-group"><div class="row">
+        <label class="col-md-2 control-label" for="nickname_input">Nickname</label>
+        <div class="col-md-6">
+        <input type="text" class="form-control" value="{{ userinfo[3] }}" placeholder="Nickname | BGM_url" id="nickname_input" name="nickname">
         </div></div></div>
         
         <div class="form-group"><div class="row">
         <label class="col-md-2 control-label" for="birthday_input">Birthday</label>
         <div class="col-md-6">
-        <input type="date" class="form-control" id="birthday_input" name="birthday">
+        <input type="date" class="form-control" id="birthday_input" value="{{ userinfo[4] }}" name="birthday">
         </div></div></div>
         
         <div class="form-group"><div class="row">
         <label class="col-md-2 control-label">Description</label>
         <div class="col-md-6">
-        <textarea class="form-control" rows="3" name="description" placeholder="Introduce yourself"></textarea>
+        <textarea class="form-control" rows="3" name="description" placeholder="Introduce yourself">{{ userinfo[6] }}</textarea>
         </div></div></div>
 
         <div class="form-group"><div class="row">
@@ -67,4 +73,7 @@
         <button type="submit" class="btn btn-default">Submit GO!</button>
     </form>
 </div>
+<script>
+document.getElementById("sex_input").options[{{ userinfo[5] + 1 }}].selected = true;
+</script>
 {% endblock %}

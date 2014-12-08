@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block body %}
+{{ super() }}
+
+<h1>Add new Entry</h1>
+    <form role="form" action="" method="post" target='_blank'>
+        
+        <div class="form-group"><label for="mtype_input">Media Type</label>
+            <input type="text" class="form-control" id="mtype_input" name="mtype" placeholder="0_videos 1_animes 2_comics 3n 4g 5m 6b">
+        </div>
+        <div class="form-group"><label for="mname_input">Media Name</label>
+            <input type="text" class="form-control" id="mname_input" name="mname" placeholder="e.g. アカメが斬る">
+        </div>
+        <div class="form-group"><label for="murls_input">Media Urls</label>
+            <input type="text" class="form-control" id="murls_input" name="murls" placeholder="path|cover|x1|x2|x3|...|xn">
+        </div>
+        <div class="form-group"><label for="ch_input">Media Chapter</label>
+            <input type="text" class="form-control" id="ch_input" placeholder="1" name="ch">
+            <input type="text" class="form-control" id="chall_input" placeholder="24" name="chall">
+        </div>
+        <div class="form-group"><label for="minfo_input">Media Information</label>
+            <input type="text" class="form-control" id="minfo_input" name="minfo" placeholder="Authors, etc.">
+        </div>
+        
+        <div class="form-group"><label for="title_input">Title</label>
+            <input type="text" class="form-control" id="title_input" name="title" placeholder="Enter Title">
+        </div>
+        <div class="form-group"><label for="abs_input">Abstract</label>
+            <textarea class="form-control" rows="3" id="abs_input" placeholder="Enter Abstract" name="abstract"></textarea>
+        </div>
+        <div class="form-group"><label for="text_input">Text</label>
+            <textarea class="form-control" rows="8" id="text_input" placeholder="Enter Description" name="text"></textarea>
+        </div>
+
+        <div class="checkbox">
+            <label><input type="checkbox"> Test checkbox</label>
+        </div>
+        <button type="submit" class="btn btn-default">Post GO!</button>
+        {% if error %} <p class="login_error"><strong>Error:</strong>{{ error }}</p> {% endif %}
+    </form>
+
+
+<script>
+window.onload=function(){
+    document.getElementById("navbar_sm").getElementsByTagName("li")[8].className="active";
+    document.getElementById("navbar_lg").getElementsByTagName("li")[8].className="active";
+}
+</script>
+{% endblock %}

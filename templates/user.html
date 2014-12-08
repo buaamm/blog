@@ -1,4 +1,15 @@
 {% extends "layout.html" %}
+
+{# 0=id, 
+    1=username, 
+    2=create_time, 
+    3=nickname, 
+    4=level, 
+    5=cash, 
+    6=birthday, 
+    7=sex, 
+    8=description #}
+
 {% block body %}
     {% if error %}
         <p class="error"><strong>Error:</strong>{{ error }}</p>
@@ -25,16 +36,28 @@
             <td>{{ userinfo[2] }}</td>
         </tr>
         <tr>
-            <td>birthday</td>
+            <td>nickname</td>
             <td>{{ userinfo[3] }}</td>
         </tr>
         <tr>
-            <td>sex</td>
+            <td>level</td>
             <td>{{ userinfo[4] }}</td>
         </tr>
         <tr>
-            <td>description</td>
+            <td>cash</td>
             <td>{{ userinfo[5] }}</td>
+        </tr>
+        <tr>
+            <td>birthday</td>
+            <td>{{ userinfo[6] }}</td>
+        </tr>
+        <tr>
+            <td>sex</td>
+            <td>{{ userinfo[7] }}</td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>{{ userinfo[8] }}</td>
         </tr>
         </tbody>
     </table>

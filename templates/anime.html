@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
 {% block body %}
+{{ super() }}
+
     <h1>{{ type }} {{ id }}</h1>
     {% if type=="y" %}
     <h1>Video from Youku</h1>

@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
+{{ super() }}
 <script>
 window.onload=function(){
     document.getElementById("navbar_sm").getElementsByTagName("li")[0].className="active";
@@ -8,3 +9,50 @@ window.onload=function(){
 </script>
 {% endblock %}
 
+
+{# 0=entries.id, 
+	1=entries.userid, 
+	2=entries.mid,
+	3=entries.title, 
+	4=entries.create_time, 
+	5=entries.abstract, 
+	6=entries.text, 
+	7=entries.mname, 
+	8=entries.mtype, 
+	9=entries.murls, 
+	10=users.username #}
+
+
+{% block entries %}
+<div class="div-entry">
+	{% for entry in entries %}
+	<h1>{{ entry[3] }}<small><a href="{{ url_for('user', username=entry[10])}}">@{{ entry[10] }}</a> {{ entry[4] }}</small></h1>
+	{% if entry[8][0] in "01" %}
+		<h2>{{ entry[7] }}</h2>
+		{% if entry[8][1] == "y" %}
+		<h3>Source: Youku</h3>
+    	<div class="video" id="youku_video">
+        	<embed class="videoin" src="http://player.youku.com/player.php/sid/{{ entry[9] }}/v.swf" allowFullScreen="true" quality="high" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+    	</div>
+    	{% elif entry[8][1] == "b" %}
+    	<h3>Source: Bilibili</h3>
+    	<div class="video" id="bilibili_video">
+	       	<embed class="videoin" src="http://static.hdslb.com/miniloader.swf?aid={{ entry[9] }}&amp;page=1" allowFullScreen="true" quality="high" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+	    </div>
+	    {% else %}
+	    <h3>Source: Unknown</h3>
+	    {% endif %}
+    {% else %}
+      	<h2>{{ entry[7] }}</h2>
+        <div class="comic">
+        	<h3>type={{ entry[8] }}</h3>
+        	<img src="{{ entry[9]|getcover }}">
+        </div>
+    {% endif %}
+       	<div class="entry-abstract">{{ entry[5]|e }}</div>
+       	<div class="entry-text"><a href="{{ url_for('items', id=entry[2]) }}">More..</a></div>
+    {% else %}
+        <h1>No comments here so far</h1>
+    {% endfor %}
+</div>
+{% endblock %}

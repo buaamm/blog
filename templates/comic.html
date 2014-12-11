@@ -4,11 +4,12 @@
     <h1>{{ name }}<small>type={{ type }}, chapters={{ chapters }}, upload={{ upload }}, uid={{ uid }},  </small></h1>
     <h2>info={{ info }}</h2>
     <div class="comic" id="read_comic">
-        <img src="{{ path + cover }}" style="width:100%;border-bottom:5px solid black;border-top:5px solid white">
+        <img src="{{ path }}{{ cover }}" style="width:100%;border-bottom:5px solid black;border-top:5px solid white">
         {% for file in filelist %}
-            <img src="{{ path + file }}" style="width:100%;border-bottom:5px solid black;border-top:5px solid white">
+            <img src="{{ path }}{{ file }}" style="width:100%;border-bottom:5px solid black;border-top:5px solid white">
         {% endfor %}
     </div>
+    <button type="button" class="btn btn-lg btn-warning"><a href="{{ url_for('items', id=cid) }}">View all</a></button>
     <div class="comic-entry">
         <h2>{{ title }}</h2>
         <h2>{{ text }}</h2>

@@ -282,7 +282,8 @@ def video(id=None):
 
 @app.route('/items')
 @app.route('/items/<id>')
-def items(id=None):
+@app.route('/items/<id>/<max>')
+def items(id=None, max=None):
     if id is None: return render_template('homepage.html')
     g.db = connect_db()
     res = g.db.execute('select name,type,chapters,urls,upload_time,description from items where id="%s"' % id).fetchall()
@@ -296,9 +297,12 @@ def items(id=None):
     assert len(res)==1; value2 = res[0]
     if tp[0] in "01": return render_template('anime.html', type=tp[1], id=value1[3], name=value1[0], ch=ch, upload=value1[4], info=value1[5], uid=value2[0], title=value2[1], text=value2[2]+value2[3])
     divider = value1[3].split('|')
-    if tp[0] in "23": return render_template('comic.html', type=tp[1], name=value1[0], path=divider[0], cover=divider[1], chapters=value1[2], upload=value1[4], info=value1[5], 
-        uid=value2[0], title=value2[1], text=value2[2]+value2[3], filelist=divider[2:] )
+    filelist = divider[2:]
+    if max is not None: filelist = filelist[:(int)(max)]
+    if tp[0] in "23": return render_template('comic.html', cid=id, type=tp[1], name=value1[0], path=divider[0], cover=divider[1], chapters=value1[2], upload=value1[4], info=value1[5], 
+        uid=value2[0], title=value2[1], text=value2[2]+value2[3], filelist=filelist )
     return render_template('none.html')
+
 
 @app.route('/delete/<id>')
 def delete(id):

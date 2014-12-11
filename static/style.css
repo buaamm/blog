@@ -86,7 +86,7 @@ body {font-family:YuMincho,'游明朝',YuGothic,'游ゴシック',"Microsoft YaH
 .footer { width:100%; }
 .video          { margin:0 auto; height:auto; }
 .video embed { width:720px; height:600px; }
-.backtotop      { position:fixed; width:120px; bottom:36px; right:0; text-align:center; font-size:1.2em; text-shadow:red 1px 1px 2px, red -1px -1px 2px; display:none;}
+.backtotop      { position:fixed; width:140px; bottom:36px; right:0; text-align:center; font-size:1.2em; text-shadow:red 1px 1px 2px, red -1px -1px 2px; display:none;}
 
 @media screen and (max-width:1000px){
     .page { width:100%; left:0; margin: 0 auto;}
@@ -99,7 +99,7 @@ body {font-family:YuMincho,'游明朝',YuGothic,'游ゴシック',"Microsoft YaH
 @media screen and (max-width:930px) {
     #block21 { display:none;}
     #block22 { width:70%; margin-left: 0; }
-    #block23 #block24 #block25 { width:30%; }
+    #block23, #block24, #block25 { width:30%; }
     .navbar { display:block; }
     .backtotop {margin-bottom:86px;}
     .audiojs  {bottom:50px;}
@@ -111,7 +111,7 @@ body {font-family:YuMincho,'游明朝',YuGothic,'游ゴシック',"Microsoft YaH
 }
 @media screen and (max-width:700px){
     #block22 { width:100%; }
-    #block23 #block24 #block25{ display: none; }
+    #block23, #block24, #block25{ display: none; }
 }
 
 /**************************************************************************

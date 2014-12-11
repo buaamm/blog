@@ -50,7 +50,7 @@ window.onload=function(){
         </div>
     {% endif %}
        	<div class="entry-abstract">{{ entry[5]|e }}</div>
-       	<div class="entry-text"><a href="{{ url_for('items', id=entry[2]) }}">More..</a></div>
+        <button type="button" class="btn btn-lg btn-success"><a href="{{ url_for('items', id=entry[2], max=5) }}">See Details..</a></button>
     {% else %}
         <h1>No comments here so far</h1>
     {% endfor %}

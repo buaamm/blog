@@ -12,6 +12,7 @@ sys.setdefaultencoding("utf-8")
 import myhash
 
 app_path = os.getcwd()
+app_path = "/home/playcrab/lab/blog_stable/blog"
 
 #configuration----------------------------------------------------------------
 DATABASE = '/tmp/blog.db'
@@ -219,6 +220,7 @@ def upload():
         flash('File Uploaded!')
         return redirect(url_for('uploaded', filename=filename)) # Uploaded Successfully, Redirect to [uploaded]
     # Upload Failed ? or List
+    return render_template('upload.html')
     g.db = connect_db()
     cur = g.db.execute('select id, userid, filename, upload_time, text from files order by upload_time desc')
     all = cur.fetchall()

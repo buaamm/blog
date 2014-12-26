@@ -9,6 +9,8 @@
 body {font-family:YuMincho,'游明朝',YuGothic,'游ゴシック',"Microsoft YaHei", 微软雅黑, serif, sans-serif; width:100%;background: #FFDDFF!important;}
 .navbar {display:none;}
 
+.btn {position:relative; z-index:99999;}
+
 /**************************************************************************/
 .login-block        { text-align: right; font-size: 1.2em; padding: 0.3em; background: rgba(0,0,0,0); margin-top:auto; height:100%; width:100%; }
 .login-block h1     { font-weight:600!important; color:purple!important; }
@@ -66,12 +68,12 @@ body {font-family:YuMincho,'游明朝',YuGothic,'游ゴシック',"Microsoft YaH
 .page { width: 1080px; position:relative; left:50%; margin-left:-540px; } 
 .page img {width:100%; height: auto;}
 .inpage { width: 1050px; height:100px; margin-left:10px;}
-.mynav { position:fixed; width:120px; margin-left:0px; padding:5px 5px 5px 5px; text-align:right; z-index:0; border-right: 1px solid blue;}
+.mynav { position:fixed; width:120px; margin-left:-20px; padding:5px 5px 5px 5px; text-align:right; z-index:10; border-right: 1px solid blue;}
+.mynavpic { position:fixed; width:323px; margin-left:-153px; z-index:0;}
 .subnav { padding-top:0px; float:right; }
 .subnav li a { display:block; padding:4px 0 4px 4px; font-size:1.5em;}
 .subnav li { border-bottom: 1px solid green; }
 .subnav ul { list-style:none;margin:0px; }
-#block21 { width: 120px; margin-left:-20px;}
 #block22 { width: 730px; padding:0px 5px 0 5px; float:left; margin-left:100px; border:1px solid black; border-left:3px solid black; }
 #block23 { width: 200px; padding:5px 0px 5px 0px; float:left; border:1px solid green; }
 #block24 { width: 200px; height:600px; padding:5px 5px 5px 5px; float:left; border:1px solid green; }
@@ -92,12 +94,14 @@ body {font-family:YuMincho,'游明朝',YuGothic,'游ゴシック',"Microsoft YaH
     .page { width:100%; left:0; margin: 0 auto;}
     .inpage { width:100%; left:0; margin: 0 auto; }
     #block21 { width:13%; margin-left:0;}
+    #block210 { width:13%; margin-left:0;}
     #block22 { width:65%; margin-left:13%; }
     #block23 #block24 #block25 { width:18%; }
     .video embed, .video { width:600px; height:500px; }
 }
 @media screen and (max-width:930px) {
     #block21 { display:none;}
+    #block210 { display:none;}
     #block22 { width:70%; margin-left: 0; }
     #block23, #block24, #block25 { width:30%; }
     .navbar { display:block; }

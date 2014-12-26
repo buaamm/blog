@@ -185,6 +185,9 @@
                 </ul>    
             </div></div>
         </div>
+        <div class="mynavpic" id="block210">
+                    <img src="/static/yami.png">
+        </div>
 
         <div class="container" id="block22">
             {% block flash %}
@@ -319,6 +322,7 @@ jQuery(document).ready(function() {
     jQuery(window).scroll(function() {
         var scroll = jQuery(this).scrollTop();
         var navtop = (scroll < 300)?(300 - scroll):( (scroll-300)*(document.body.clientHeight - 180)/document.body.scrollHeight );
+        jQuery('.mynavpic').stop().animate({top: navtop}, 100);
         jQuery('.mynav').stop().animate({top: navtop}, 100);
         if (clicked == 1) return false;
         if (scroll > offset) {

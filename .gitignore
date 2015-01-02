@@ -1,5 +1,11 @@
 .mkdir
 .DS_Store
+static/comic*
+static/mp3*
+/test
+/files
+*.pre
+*.out
 
 # tags files
 tags

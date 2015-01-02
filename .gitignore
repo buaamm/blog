@@ -1,0 +1,42 @@
+.mkdir
+.DS_Store
+
+# tags files
+tags
+TAGS
+
+# eclipse files
+.project
+.cproject
+.settings
+
+# vim files
+.*.swp
+.*.swo
+*.vimrc
+.syntastic_cpp_config
+*~
+
+# CMake
+CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
+install_manifest.txt
+
+# CPack
+CPackConfig.cmake
+CPackSourceConfig.cmake
+
+# Ninja
+.ninja_deps
+.ninja_log
+*.ninja
+
+# windows files
+*.exe
+*.rc
+
+# python scripts
+*.pyc
+
